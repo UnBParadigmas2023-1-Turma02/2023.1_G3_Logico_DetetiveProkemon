@@ -2,21 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Detetive Prokémon</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css">
+  <link rel="icon" type="image/png" href="assets/logo_icon.png"/>
 </head>
 <body>
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: '',
-      repo: ''
-    }
+      name: 'Home',
+      repo: 'https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon',
+      subMaxLevel: 2,
+      loadSidebar: true,
+      loadNavbar: true,
+      alias: { "/.*/_sidebar.md": "/_sidebar.md" },
+      themeColor: '#FFFF00',
+      coverpage: true,
+      logo: "assets/detetive_icon.png",
+      search: {
+          placeholder: {
+            "/ zh CN /": "Procurar",
+            "/": "Busque por palavras chaves",
+          },
+
+          noData: "Sem Resultado",
+          noData: {
+            "/ zh CN /": "Resultado não encontrado",
+            "/": "Sem Resultado",
+          },
+        },
+
+      themeable: {
+        readyTransition: true,
+        responsiveTables: true,
+      },
+    };
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+
+  <!-- Plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.js"></script>
+  <script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
 </body>
 </html>
