@@ -1,12 +1,11 @@
 :- use_module(library(pce)).
-:- use_module(library(pce_image)).
 
 :- pce_begin_class(name_asker, dialog,
                    "Modal prompter for a name").
 
-variable(image, image, get, "Image").
 initialise(W, Label:[name]) :->
         "Initialise the window and fill it"::
+        send_super(W, initialise(Label)),
         send(W, append(text_item(name))),
         send(W, append(button(ok))),
         send(W, append(button(cancel))),
