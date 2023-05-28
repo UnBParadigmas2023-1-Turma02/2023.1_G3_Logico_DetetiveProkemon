@@ -11,15 +11,25 @@ localizacao(bulbasaur, cozinha).
 localizacao(charmander, quarto).
 
 % Suspeitos
-suspeito(james).
-suspeito(jessie).
-suspeito(meowth).
+suspeito(BenjaminBlackwood).
+suspeito(VictoriaSinclair).
+suspeito(EthanDonovan).
+suspeito(OliviaMorgan).
+suspeito(SebastianRusso).
+suspeito(IsabellaSantiago).
+suspeito(JacobGallagher).
+suspeito(SophiaChen).
+suspeito(GabrielRamirez).
 
-% Relação entre suspeitos e pokémons
-relacao(james, pikachu).
-relacao(jessie, squirtle).
-relacao(meowth, bulbasaur).
 
 % Estado do jogo
 :- dynamic jogador_atual/1.
 :- dynamic localizado/1.
+
+% Verifica se todas as evidências foram encontradas
+todas_evidencias_encontradas :- evidencia(X), not(localizado(X)), !, fail.
+todas_evidencias_encontradas.
+
+% Verifica se o suspeito é o culpado
+suspeito_culpado(Suspeito) :- relacao(Suspeito, Pokemon), not(localizado(Pokemon)), !, fail.
+suspeito_culpado(Suspeito).
