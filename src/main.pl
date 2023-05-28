@@ -10,16 +10,16 @@ localizacao(squirtle, escritorio).
 localizacao(bulbasaur, cozinha).
 localizacao(charmander, quarto).
 
-% Suspeitos
-suspeito(BenjaminBlackwood).
-suspeito(VictoriaSinclair).
-suspeito(EthanDonovan).
-suspeito(OliviaMorgan).
-suspeito(SebastianRusso).
-suspeito(IsabellaSantiago).
-suspeito(JacobGallagher).
-suspeito(SophiaChen).
-suspeito(GabrielRamirez).
+% Relação entre suspeitos e pokémons
+relacao(BenjaminBlackwood, Persian).
+relacao(VictoriaSinclair, Mismagius).
+relacao(EthanDonova, Ditto).
+relacao(OliviaMorgan, Dragonite).
+relacao(SebastianRusso, Serperior).
+relacao(IsabellaSantiago, Gengar).
+relacao(JacobGallagher, Primarina).
+relacao(SophiaChen, Weavile).
+relacao(GabrielRamirez, Greninja).
 
 
 % Estado do jogo
