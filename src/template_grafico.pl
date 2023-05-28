@@ -10,15 +10,34 @@ suspeito(giovanni).
 % Definição das fases
 fase(1) :-
     new(Dialog, dialog('Fase 1')),
-    send(Dialog, append, text('Você está em uma floresta escura e encontra um Pokémon ferido.')),
-    send(Dialog, append, text('O que você faz?')),
-    send(Dialog, append, text('1. Levar o Pokémon para o centro Pokémon mais próximo.')),
-    send(Dialog, append, text('2. Ignorar o Pokémon e continuar sua jornada.')),
-    send(Dialog, append, text('3. Capturar o Pokémon para si.')),
-    send(Dialog, append, button(levar, message(@prolog, fase, 2, Dialog))),
-    send(Dialog, append, button(ignorar, message(@prolog, fase, 3, Dialog))),
-    send(Dialog, append, button(capturar, message(@prolog, fase, 4, Dialog))),
     send(Dialog, size, size(400, 300)), % Define o tamanho da janela
+
+    % Configuração do canvas para a imagem de fundo
+    send(Dialog, display, new(Canvas, picture)),
+    send(Canvas, size, Dialog?size), % Define o tamanho do canvas igual ao da janela
+    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+
+    % Configuração dos grupos de componentes
+    send(Dialog, display, new(TGroup, dialog_group(texts, group))),
+    send(Dialog, display, new(BGroup, dialog_group(buttons, group))),
+
+    % Configuração dos componentes de texto
+    send(TGroup, append, text('Você está em uma floresta escura e encontra um Pokémon ferido.')),
+    send(TGroup, append, text('O que você faz?')),
+    send(TGroup, append, text('1. Levar o Pokémon para o centro Pokémon mais próximo.')),
+    send(TGroup, append, text('2. Ignorar o Pokémon e continuar sua jornada.')),
+    send(TGroup, append, text('3. Capturar o Pokémon para si.')),
+
+    % Configuração dos botões
+    send(BGroup, append, button(levar, message(@prolog, fase, 2, Dialog))),
+    send(BGroup, append, button(ignorar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(capturar, message(@prolog, fase, 4, Dialog))),
+
+    % Posicionamento dos componentes
+    send(Dialog, below, Canvas),
+    send(BGroup, below, TGroup),
+    send(Dialog, gap, size(0, 30)), % Espaço entre os componentes de texto e botões
     send(Dialog, open_centered), % Abre a janela centralizada e maximizada
     send(Dialog, transient_for, @nil). % Define a janela como independente
 
