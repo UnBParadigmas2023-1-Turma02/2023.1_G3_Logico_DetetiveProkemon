@@ -1,38 +1,38 @@
-% Evidências do crime
-evidencia(pikachu).
-evidencia(squirtle).
-evidencia(bulbasaur).
-evidencia(charmander).
+% % Evidências do crime
+% evidencia(pikachu).
+% evidencia(squirtle).
+% evidencia(bulbasaur).
+% evidencia(charmander).
 
-% Locais onde as evidências podem ser encontradas
-localizacao(pikachu, celula).
-localizacao(squirtle, escritorio).
-localizacao(bulbasaur, cozinha).
-localizacao(charmander, quarto).
+% % Locais onde as evidências podem ser encontradas
+% localizacao(pikachu, celula).
+% localizacao(squirtle, escritorio).
+% localizacao(bulbasaur, cozinha).
+% localizacao(charmander, quarto).
 
-% Relação entre suspeitos e pokémons
-relacao(BenjaminBlackwood, Persian).
-relacao(VictoriaSinclair, Mismagius).
-relacao(EthanDonova, Ditto).
-relacao(OliviaMorgan, Dragonite).
-relacao(SebastianRusso, Serperior).
-relacao(IsabellaSantiago, Gengar).
-relacao(JacobGallagher, Primarina).
-relacao(SophiaChen, Weavile).
-relacao(GabrielRamirez, Greninja).
+% % Relação entre suspeitos e pokémons
+% relacao(BenjaminBlackwood, Persian).
+% relacao(VictoriaSinclair, Mismagius).
+% relacao(EthanDonova, Ditto).
+% relacao(OliviaMorgan, Dragonite).
+% relacao(SebastianRusso, Serperior).
+% relacao(IsabellaSantiago, Gengar).
+% relacao(JacobGallagher, Primarina).
+% relacao(SophiaChen, Weavile).
+% relacao(GabrielRamirez, Greninja).
 
 
-% Estado do jogo
-:- dynamic jogador_atual/1.
-:- dynamic localizado/1.
+% % Estado do jogo
+% :- dynamic jogador_atual/1.
+% :- dynamic localizado/1.
 
-% Verifica se todas as evidências foram encontradas
-todas_evidencias_encontradas :- evidencia(X), not(localizado(X)), !, fail.
-todas_evidencias_encontradas.
+% % Verifica se todas as evidências foram encontradas
+% todas_evidencias_encontradas :- evidencia(X), not(localizado(X)), !, fail.
+% todas_evidencias_encontradas.
 
-% Verifica se o suspeito é o culpado
-suspeito_culpado(Suspeito) :- relacao(Suspeito, Pokemon), not(localizado(Pokemon)), !, fail.
-suspeito_culpado(Suspeito).
+% % Verifica se o suspeito é o culpado
+% suspeito_culpado(Suspeito) :- relacao(Suspeito, Pokemon), not(localizado(Pokemon)), !, fail.
+% suspeito_culpado(Suspeito).
 
 
 
@@ -73,30 +73,76 @@ motivacao(gabriel_ramirez, vinganca).
 
 % Definição das fases
 % Fase inicial
+% fase(1) :-
+%     nl, write('Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"!'), nl,
+%     write('Você se encontra no luxuoso lobby de um hotel quando de repente um misterioso pokémon sai voando do topo da montanha emitindo um estrondoso som que ecoou por toda a ilha, e em um ato de fúria o pokémon dispara um poderoso ataque explosivo contra a ilha'), nl,
+%     write('Após desaparecer, um senhor idoso grita "LUGIA!". Será possível? Apesar do nome da ilha, acreditava-se que Lugia não estava mais no local...'), nl,
+%     write('Uma misteriosa voz começa a ecoar em sua cabeça, o que e quem seria?'), nl,
+%     write('De repente um pokémon aparece e se apresenta como Celebi e conta que o ovo do poderoso Lugia foi roubado e agora está em fúria, que só poderá ser cessada quando o ovo for recuperado...'), nl,
+%     write('Sua missão é desvendar esse intrigante crime, identificar o culpado e devolver o ovo para Lugia.'), nl,
+%     write('Cada suspeito possui uma ligação com um Pokémon específico, e suas ações e relações podem revelar pistas importantes para chegar à verdade.'), nl,
+%     write('Explore os diversos locais do hotel, como as celas, o escritório, a cozinha, o quarto e até mesmo a Montanha próxima.'), nl,
+%     write('Lembre-se de que nem todas as evidências foram encontradas e nem todos os suspeitos são culpados.'), nl,
+%     write('Faça perguntas estratégicas, analise cuidadosamente as informações disponíveis e use sua sagacidade para chegar à conclusão correta.'), nl,
+%     write('Você está pronto(a) para enfrentar o desafio de "Pokémon Crime Investigation" e solucionar esse enigma intrigante?'), nl,
+%     write('A verdade espera por você no coração deste hotel. Boa sorte, detetive!'), nl,
+%     nl, write('Você está no lobby do hotel e um ovo de Pokémon foi roubado.'), nl,
+%     nl, write('O que você faz?'), nl,
+%     nl, write('1. Investigar a praia.'), nl,
+%     write('2. Falar com algum suspeito.'), nl,
+%     write('3. Procurar pistas no hotel.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(2);
+%         Opcao = 2 -> fase(3);
+%         Opcao = 3 -> fase(4)
+%     ).
+
+% Definição das fases
 fase(1) :-
-    nl, write('Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"!'), nl,
-    write('Você se encontra no luxuoso lobby de um hotel quando de repente um misterioso pokémon sai voando do topo da montanha emitindo um estrondoso som que ecoou por toda a ilha, e em um ato de fúria o pokémon dispara um poderoso ataque explosivo contra a ilha'), nl,
-    write('Após desaparecer, um senhor idoso grita "LUGIA!". Será possível? Apesar do nome da ilha, acreditava-se que Lugia não estava mais no local...'), nl,
-    write('Uma misteriosa voz começa a ecoar em sua cabeça, o que e quem seria?'), nl,
-    write('De repente um pokémon aparece e se apresenta como Celebi e conta que o ovo do poderoso Lugia foi roubado e agora está em fúria, que só poderá ser cessada quando o ovo for recuperado...'), nl,
-    write('Sua missão é desvendar esse intrigante crime, identificar o culpado e devolver o ovo para Lugia.'), nl,
-    write('Cada suspeito possui uma ligação com um Pokémon específico, e suas ações e relações podem revelar pistas importantes para chegar à verdade.'), nl,
-    write('Explore os diversos locais do hotel, como as celas, o escritório, a cozinha, o quarto e até mesmo a Montanha próxima.'), nl,
-    write('Lembre-se de que nem todas as evidências foram encontradas e nem todos os suspeitos são culpados.'), nl,
-    write('Faça perguntas estratégicas, analise cuidadosamente as informações disponíveis e use sua sagacidade para chegar à conclusão correta.'), nl,
-    write('Você está pronto(a) para enfrentar o desafio de "Pokémon Crime Investigation" e solucionar esse enigma intrigante?'), nl,
-    write('A verdade espera por você no coração deste hotel. Boa sorte, detetive!'), nl,
-    nl, write('Você está no lobby do hotel e um ovo de Pokémon foi roubado.'), nl,
-    nl, write('O que você faz?'), nl,
-    nl, write('1. Investigar a praia.'), nl,
-    write('2. Falar com algum suspeito.'), nl,
-    write('3. Procurar pistas no hotel.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(2);
-        Opcao = 2 -> fase(3);
-        Opcao = 3 -> fase(4)
-    ).
+    new(Dialog, dialog('Fase 1')),
+    send(Dialog, size, size(400, 300)), % Define o tamanho da janela
+
+    % Configuração do canvas para a imagem de fundo
+    send(Dialog, display, new(Canvas, picture)),
+    send(Canvas, size, Dialog?size), % Define o tamanho do canvas igual ao da janela
+    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+
+    % Configuração dos grupos de componentes
+    send(Dialog, display, new(TGroup, dialog_group(texts, group))),
+    send(Dialog, display, new(BGroup, dialog_group(buttons, group))),
+
+    % Configuração dos componentes de texto
+    send(TGroup, append, text('Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"!')),
+    send(TGroup, append, text('Você se encontra no luxuoso lobby de um hotel quando de repente um misterioso pokémon sai voando do topo da montanha emitindo um estrondoso som que ecoou por toda a ilha, e em um ato de fúria o pokémon dispara um poderoso ataque explosivo contra a ilha')),
+    send(TGroup, append, text('Após desaparecer, um senhor idoso grita "LUGIA!". Será possível? Apesar do nome da ilha, acreditava-se que Lugia não estava mais no local...')),
+    send(TGroup, append, text('Uma misteriosa voz começa a ecoar em sua cabeça, o que e quem seria?')),
+    send(TGroup, append, text('De repente um pokémon aparece e se apresenta como Celebi e conta que o ovo do poderoso Lugia foi roubado e agora está em fúria, que só poderá ser cessada quando o ovo for recuperado...')),
+    send(TGroup, append, text('Sua missão é desvendar esse intrigante crime, identificar o culpado e devolver o ovo para Lugia.')),
+    send(TGroup, append, text('Cada suspeito possui uma ligação com um Pokémon específico, e suas ações e relações podem revelar pistas importantes para chegar à verdade.')),
+    send(TGroup, append, text('Explore os diversos locais do hotel, como as celas, o escritório, a cozinha, o quarto e até mesmo a Montanha próxima.')),
+    send(TGroup, append, text('Lembre-se de que nem todas as evidências foram encontradas e nem todos os suspeitos são culpados.')),
+    send(TGroup, append, text('Faça perguntas estratégicas, analise cuidadosamente as informações disponíveis e use sua sagacidade para chegar à conclusão correta.')),
+    send(TGroup, append, text('Você está pronto(a) para enfrentar o desafio de "Pokémon Crime Investigation" e solucionar esse enigma intrigante?')),
+    send(TGroup, append, text('A verdade espera por você no coração deste hotel. Boa sorte, detetive!')),
+    send(TGroup, append, text('O que você faz?')),
+    send(TGroup, append, text('1. Investigar a praia.')),
+    send(TGroup, append, text('2. Falar com algum suspeito.')),
+    send(TGroup, append, text('3. Procurar pistas no hotel.')),
+
+    % Configuração dos botões
+    send(BGroup, append, button(investigar, message(@prolog, fase, 2, Dialog))),
+    send(BGroup, append, button(falar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(procurar, message(@prolog, fase, 4, Dialog))),
+
+    % Posicionamento dos componentes
+    send(Dialog, below, Canvas),
+    send(BGroup, below, TGroup),
+    send(Dialog, gap, size(0, 30)), % Espaço entre os componentes de texto e botões
+    send(Dialog, open_centered), % Abre a janela centralizada e maximizada
+    send(Dialog, transient_for, @nil). % Define a janela como independente
+
 
 % Fase da praia
 fase(2) :-
@@ -310,168 +356,166 @@ benjaminBlackwood:-
 
 
 
-% Template que está abaixo
+% % Template que está abaixo
 
-fase(3) :-
-    nl, write('Enquanto continua sua jornada, você encontra um suspeito.'),
-    nl, write('O suspeito parece nervoso e sujo, você decide confrontá-lo.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Perguntar ao suspeito sobre o Pokémon ferido.'),
-    nl, write('2. Continuar sua jornada e ignorar o suspeito.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(7);
-        Opcao = 2 -> fase(8)
-    ).
+% fase(3) :-
+%     nl, write('Enquanto continua sua jornada, você encontra um suspeito.'),
+%     nl, write('O suspeito parece nervoso e sujo, você decide confrontá-lo.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Perguntar ao suspeito sobre o Pokémon ferido.'),
+%     nl, write('2. Continuar sua jornada e ignorar o suspeito.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(7);
+%         Opcao = 2 -> fase(8)
+%     ).
 
-fase(4) :-
-    nl, write('Você captura o Pokémon e decide investigar a marca em seu corpo.'),
-    nl, write('Ao pesquisar, você descobre que a marca está relacionada a um grupo criminoso.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Denunciar o grupo criminoso para a polícia Pokémon.'),
-    nl, write('2. Ignorar a marca e continuar sua jornada.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(9);
-        Opcao = 2 -> fase(10)
-    ).
+% fase(4) :-
+%     nl, write('Você captura o Pokémon e decide investigar a marca em seu corpo.'),
+%     nl, write('Ao pesquisar, você descobre que a marca está relacionada a um grupo criminoso.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Denunciar o grupo criminoso para a polícia Pokémon.'),
+%     nl, write('2. Ignorar a marca e continuar sua jornada.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(9);
+%         Opcao = 2 -> fase(10)
+%     ).
 
-fase(5) :-
-    nl, write('O enfermeiro Joy diz que a marca é uma assinatura de um grupo criminoso.'),
-    nl, write('Você decide investigar o grupo criminoso e suspeita que James e Jessie estejam envolvidos.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Investigar James.'),
-    nl, write('2. Investigar Jessie.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(11);
-        Opcao = 2 -> fase(12)
-    ).
+% fase(5) :-
+%     nl, write('O enfermeiro Joy diz que a marca é uma assinatura de um grupo criminoso.'),
+%     nl, write('Você decide investigar o grupo criminoso e suspeita que James e Jessie estejam envolvidos.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Investigar James.'),
+%     nl, write('2. Investigar Jessie.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(11);
+%         Opcao = 2 -> fase(12)
+%     ).
 
-fase(6) :-
-    nl, write('Você sai do centro Pokémon e continua sua jornada.'),
-    nl, write('Ao passar por uma cidade, você encontra um suspeito.'),
-    nl, write('O suspeito parece nervoso e sujo, você decide confrontá-lo.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Perguntar ao suspeito sobre o Pokémon ferido.'),
-    nl, write('2. Continuar sua jornada e ignorar o suspeito.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(7);
-        Opcao = 2 -> fase(8)
-    ).
+% fase(6) :-
+%     nl, write('Você sai do centro Pokémon e continua sua jornada.'),
+%     nl, write('Ao passar por uma cidade, você encontra um suspeito.'),
+%     nl, write('O suspeito parece nervoso e sujo, você decide confrontá-lo.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Perguntar ao suspeito sobre o Pokémon ferido.'),
+%     nl, write('2. Continuar sua jornada e ignorar o suspeito.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(7);
+%         Opcao = 2 -> fase(8)
+%     ).
 
-fase(7) :-
-    nl, write('O suspeito confessa ter ferido o Pokémon a mando de Giovanni.'),
-    nl, write('Você decide confrontar Giovanni.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Enfrentar Giovanni.'),
-    nl, write('2. Reportar Giovanni para a polícia Pokémon.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(13);
-        Opcao = 2 -> fase(14)
-    ).
+% fase(7) :-
+%     nl, write('O suspeito confessa ter ferido o Pokémon a mando de Giovanni.'),
+%     nl, write('Você decide confrontar Giovanni.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Enfrentar Giovanni.'),
+%     nl, write('2. Reportar Giovanni para a polícia Pokémon.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(13);
+%         Opcao = 2 -> fase(14)
+%     ).
 
-fase(8) :-
-    nl, write('Você continua sua jornada e encontra um suspeito em uma cidade.'),
-    nl, write('O suspeito parece nervoso e sujo, você decide confrontá-lo.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Perguntar ao suspeito sobre o Pokémon ferido.'),
-    nl, write('2. Continuar sua jornada e ignorar o suspeito.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(7);
-        Opcao = 2 -> fase(8)
-    ).
+% fase(8) :-
+%     nl, write('Você continua sua jornada e encontra um suspeito em uma cidade.'),
+%     nl, write('O suspeito parece nervoso e sujo, você decide confrontá-lo.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Perguntar ao suspeito sobre o Pokémon ferido.'),
+%     nl, write('2. Continuar sua jornada e ignorar o suspeito.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(7);
+%         Opcao = 2 -> fase(8)
+%     ).
 
-fase(9) :-
-    nl, write('Você denuncia o grupo criminoso para a polícia Pokémon.'),
-    nl, write('A polícia inicia uma investigação e suspeita de James e Jessie.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Investigar James.'),
-    nl, write('2. Investigar Jessie.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(11);
-        Opcao = 2 -> fase(12)
-    ).
+% fase(9) :-
+%     nl, write('Você denuncia o grupo criminoso para a polícia Pokémon.'),
+%     nl, write('A polícia inicia uma investigação e suspeita de James e Jessie.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Investigar James.'),
+%     nl, write('2. Investigar Jessie.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(11);
+%         Opcao = 2 -> fase(12)
+%     ).
 
-fase(10) :-
-    nl, write('Você ignora a marca e continua sua jornada.'),
-    nl, write('Ao passar por uma cidade, você encontra um suspeito.'),
-    nl, write('O suspeito parece nervoso e sujo, você decide confrontá-lo.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Perguntar ao suspeito sobre o Pokémon ferido.'),
-    nl, write('2. Continuar sua jornada e ignorar o suspeito.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(7);
-        Opcao = 2 -> fase(8)
-    ).
+% fase(10) :-
+%     nl, write('Você ignora a marca e continua sua jornada.'),
+%     nl, write('Ao passar por uma cidade, você encontra um suspeito.'),
+%     nl, write('O suspeito parece nervoso e sujo, você decide confrontá-lo.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Perguntar ao suspeito sobre o Pokémon ferido.'),
+%     nl, write('2. Continuar sua jornada e ignorar o suspeito.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(7);
+%         Opcao = 2 -> fase(8)
+%     ).
 
-fase(11) :-
-    nl, write('Você investiga James e descobre evidências ligando-o ao crime.'),
-    nl, write('James é preso e a lista de suspeitos é reduzida.'),
-    retractall(suspeito(james)),
-    fase(15).
+% fase(11) :-
+%     nl, write('Você investiga James e descobre evidências ligando-o ao crime.'),
+%     nl, write('James é preso e a lista de suspeitos é reduzida.'),
+%     retractall(suspeito(james)),
+%     fase(15).
 
-fase(12) :-
-    nl, write('Você investiga Jessie e descobre evidências ligando-a ao crime.'),
-    nl, write('Jessie é presa e a lista de suspeitos é reduzida.'),
-    retractall(suspeito(jessie)),
-    fase(15).
+% fase(12) :-
+%     nl, write('Você investiga Jessie e descobre evidências ligando-a ao crime.'),
+%     nl, write('Jessie é presa e a lista de suspeitos é reduzida.'),
+%     retractall(suspeito(jessie)),
+%     fase(15).
 
-fase(13) :-
-    nl, write('Você enfrenta Giovanni, mas ele consegue escapar.'),
-    nl, write('Você informa a polícia Pokémon sobre o ocorrido.'),
-    nl, write('A polícia começa a procurar Giovanni.'),
-    fase(16).
+% fase(13) :-
+%     nl, write('Você enfrenta Giovanni, mas ele consegue escapar.'),
+%     nl, write('Você informa a polícia Pokémon sobre o ocorrido.'),
+%     nl, write('A polícia começa a procurar Giovanni.'),
+%     fase(16).
 
-fase(14) :-
-    nl, write('Você reporta Giovanni para a polícia Pokémon.'),
-    nl, write('A polícia começa a procurar Giovanni.'),
-    fase(16).
+% fase(14) :-
+%     nl, write('Você reporta Giovanni para a polícia Pokémon.'),
+%     nl, write('A polícia começa a procurar Giovanni.'),
+%     fase(16).
 
-fase(15) :-
-    nl, write('Restam apenas dois suspeitos: Giovanni e jogador.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Investigar Giovanni.'),
-    nl, write('2. Investigar a si mesmo.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(17);
-        Opcao = 2 -> fase(18)
-    ).
+% fase(15) :-
+%     nl, write('Restam apenas dois suspeitos: Giovanni e jogador.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Investigar Giovanni.'),
+%     nl, write('2. Investigar a si mesmo.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(17);
+%         Opcao = 2 -> fase(18)
+%     ).
 
-fase(16) :-
-    nl, write('Restam apenas dois suspeitos: Giovanni e jogador.'),
-    nl, write('O que você faz?'),
-    nl, write('1. Investigar Giovanni.'),
-    nl, write('2. Investigar a si mesmo.'), nl,
-    read(Opcao),
-    (
-        Opcao = 1 -> fase(17);
-        Opcao = 2 -> fase(18)
-    ).
+% fase(16) :-
+%     nl, write('Restam apenas dois suspeitos: Giovanni e jogador.'),
+%     nl, write('O que você faz?'),
+%     nl, write('1. Investigar Giovanni.'),
+%     nl, write('2. Investigar a si mesmo.'), nl,
+%     read(Opcao),
+%     (
+%         Opcao = 1 -> fase(17);
+%         Opcao = 2 -> fase(18)
+%     ).
 
-fase(17) :-
-    nl, write('Você investiga Giovanni e encontra evidências conclusivas.'),
-    nl, write('Giovanni é preso e o crime é solucionado.'),
-    retractall(suspeito(giovanni)),
-    fase(19).
+% fase(17) :-
+%     nl, write('Você investiga Giovanni e encontra evidências conclusivas.'),
+%     nl, write('Giovanni é preso e o crime é solucionado.'),
+%     retractall(suspeito(giovanni)),
+%     fase(19).
 
-fase(18) :-
-    nl, write('Você investiga a si mesmo e encontra evidências que o incriminam.'),
-    nl, write('Você é preso e o jogo termina.'),
-    fase(20).
+% fase(18) :-
+%     nl, write('Você investiga a si mesmo e encontra evidências que o incriminam.'),
+%     nl, write('Você é preso e o jogo termina.'),
+%     fase(20).
 
-fase(19) :-
-    nl, write('Parabéns! Você solucionou o crime e prendeu o culpado!'),
-    nl, write('Você é reconhecido como um herói! O jogo termina.').
+% fase(19) :-
+%     nl, write('Parabéns! Você solucionou o crime e prendeu o culpado!'),
+%     nl, write('Você é reconhecido como um herói! O jogo termina.').
 
 % Função para iniciar o jogo
 iniciar_jogo :-
-    retractall(suspeito(_)),
-    asserta(suspeito(jogador)),
     fase(1).

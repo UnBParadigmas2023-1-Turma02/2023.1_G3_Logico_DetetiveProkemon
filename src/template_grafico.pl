@@ -10,11 +10,11 @@ suspeito(giovanni).
 % Definição das fases
 fase(1) :-
     new(Dialog, dialog('Fase 1')),
-    send(Dialog, size, size(400, 300)), % Define o tamanho da janela
+    send(Dialog, size, size(1600, 900)), % Define o tamanho da janela
 
     % Configuração do canvas para a imagem de fundo
     send(Dialog, display, new(Canvas, picture)),
-    send(Canvas, size, Dialog?size), % Define o tamanho do canvas igual ao da janela
+    send(Canvas, size, size(1600, 400)), % Define o tamanho do canvas igual ao da janela
     send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
@@ -23,16 +23,27 @@ fase(1) :-
     send(Dialog, display, new(BGroup, dialog_group(buttons, group))),
 
     % Configuração dos componentes de texto
-    send(TGroup, append, text('Você está em uma floresta escura e encontra um Pokémon ferido.')),
-    send(TGroup, append, text('O que você faz?')),
-    send(TGroup, append, text('1. Levar o Pokémon para o centro Pokémon mais próximo.')),
-    send(TGroup, append, text('2. Ignorar o Pokémon e continuar sua jornada.')),
-    send(TGroup, append, text('3. Capturar o Pokémon para si.')),
+    send(TGroup, append, text('Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"!')),
+    send(TGroup, append, text('Você se encontra no luxuoso lobby de um hotel quando de repente um misterioso pokémon sai voando do topo da montanha emitindo um estrondoso som que ecoou por toda a ilha, e em um ato de fúria o pokémon dispara um poderoso ataque explosivo contra a ilha')),
+    send(TGroup, append, text('Após desaparecer, um senhor idoso grita "LUGIA!". Será possível? Apesar do nome da ilha, acreditava-se que Lugia não estava mais no local...')),
+    send(TGroup, append, text('Uma misteriosa voz começa a ecoar em sua cabeça, o que e quem seria?')),
+    send(TGroup, append, text('De repente um pokémon aparece e se apresenta como Celebi e conta que o ovo do poderoso Lugia foi roubado e agora está em fúria, que só poderá ser cessada quando o ovo for recuperado...')),
+    send(TGroup, append, text('Sua missão é desvendar esse intrigante crime, identificar o culpado e devolver o ovo para Lugia.')),
+    send(TGroup, append, text('Cada suspeito possui uma ligação com um Pokémon específico, e suas ações e relações podem revelar pistas importantes para chegar à verdade.')),
+    send(TGroup, append, text('Explore os diversos locais do hotel, como as celas, o escritório, a cozinha, o quarto e até mesmo a Montanha próxima.')),
+    send(TGroup, append, text('Lembre-se de que nem todas as evidências foram encontradas e nem todos os suspeitos são culpados.')),
+    send(TGroup, append, text('Faça perguntas estratégicas, analise cuidadosamente as informações disponíveis e use sua sagacidade para chegar à conclusão correta.')),
+    send(TGroup, append, text('Você está pronto(a) para enfrentar o desafio de "Pokémon Crime Investigation" e solucionar esse enigma intrigante?')),
+    send(TGroup, append, text('A verdade espera por você no coração deste hotel. Boa sorte, detetive!')),
+    send(TGroup, append, text('O que você deseja fazer?')),
+    send(TGroup, append, text('1. Investigar a praia.')),
+    send(TGroup, append, text('2. Falar com algum suspeito.')),
+    send(TGroup, append, text('3. Procurar pistas no hotel.')),
 
     % Configuração dos botões
-    send(BGroup, append, button(levar, message(@prolog, fase, 2, Dialog))),
-    send(BGroup, append, button(ignorar, message(@prolog, fase, 3, Dialog))),
-    send(BGroup, append, button(capturar, message(@prolog, fase, 4, Dialog))),
+    send(BGroup, append, button(investigar, message(@prolog, fase, 2, Dialog))),
+    send(BGroup, append, button(falar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(procurar, message(@prolog, fase, 4, Dialog))),
 
     % Posicionamento dos componentes
     send(Dialog, below, Canvas),
@@ -43,17 +54,109 @@ fase(1) :-
 
 fase(2, Parent) :-
     free(Parent), % Destrói a janela anterior
+    cenario(praia),
     new(Dialog, dialog('Fase 2')),
-    send(Dialog, append, text('No centro Pokémon, o enfermeiro Joy agradece por ajudar o Pokémon.')),
-    send(Dialog, append, text('Você nota que o Pokémon tem uma marca estranha no corpo.')),
-    send(Dialog, append, text('O que você faz?')),
-    send(Dialog, append, text('1. Perguntar ao enfermeiro Joy sobre a marca.')),
-    send(Dialog, append, text('2. Ignorar a marca e sair do centro Pokémon.')),
-    send(Dialog, append, button(perguntar, message(@prolog, fase, 5, Dialog))),
-    send(Dialog, append, button(ignorar, message(@prolog, fase, 6, Dialog))),
-    send(Dialog, size, size(400, 300)), % Define o tamanho da janela
+    send(Dialog, size, size(1600, 900)), % Define o tamanho da janela
+
+    % Configuração do canvas para a imagem de fundo
+    send(Dialog, display, new(Canvas, picture)),
+    send(Canvas, size, size(1600, 400)), % Define o tamanho do canvas igual ao da janela
+    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+
+    % Configuração dos grupos de componentes
+    send(Dialog, display, new(TGroup, dialog_group(texts, group))),
+    send(Dialog, display, new(BGroup, dialog_group(buttons, group))),
+
+    % Configuração dos componentes de texto
+    send(TGroup, append, text('Você está na praia.')),
+    send(TGroup, append, text('O que você deseja fazer?')),
+    send(TGroup, append, text('1. Investigar os arredores.')),
+    send(TGroup, append, text('2. Procurar pegadas na areia.')),
+    send(TGroup, append, text('3. Conversar com outros hóspedes.')),
+
+    % Configuração dos botões
+    send(BGroup, append, button(investigar, message(@prolog, acao_investigar_arredores, Dialog))),
+    send(BGroup, append, button(procurar, message(@prolog, acao_procurar_pegadas, Dialog))),
+    send(BGroup, append, button(conversar, message(@prolog, fase, 3, Dialog))),
+
+    % Posicionamento dos componentes
+    send(Dialog, below, Canvas),
+    send(BGroup, below, TGroup),
+    send(Dialog, gap, size(0, 30)), % Espaço entre os componentes de texto e botões
     send(Dialog, open_centered), % Abre a janela centralizada e maximizada
     send(Dialog, transient_for, @nil). % Define a janela como independente
+
+
+acao_procurar_pegadas(Parent) :-
+    free(Parent), % Destrói a janela anterior
+    new(Dialog, dialog('Procurar pegadas')),
+    send(Dialog, size, size(1600, 900)), % Define o tamanho da janela
+
+    % Configuração do canvas para a imagem de fundo
+    send(Dialog, display, new(Canvas, picture)),
+    send(Canvas, size, size(1600, 400)), % Define o tamanho do canvas igual ao da janela
+    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+
+    % Configuração dos grupos de componentes
+    send(Dialog, display, new(TGroup, dialog_group(texts, group))),
+    send(Dialog, display, new(BGroup, dialog_group(buttons, group))),
+
+    % Configuração dos componentes de texto
+    send(TGroup, append, text('Você está investigando os arredores da praia e encontra pegadas de algum animal ou pokémon que se arrasta.')),
+    send(TGroup, append, text('Oque deseja fazer?')),
+    send(TGroup, append, text('1. Investigar melhor os arredores.')),
+    send(TGroup, append, text('2. Falar com suspeito.')),
+    send(TGroup, append, text('3. Voltar.')),
+    
+    % Configuração dos botões
+    send(BGroup, append, button(investigar, message(@prolog, acao_investigar_arredores, Dialog))),
+    send(BGroup, append, button(falar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
+
+    % Posicionamento dos componentes
+    send(Dialog, below, Canvas),
+    send(BGroup, below, TGroup),
+    send(Dialog, gap, size(0, 30)), % Espaço entre os componentes de texto e botões
+    send(Dialog, open_centered), % Abre a janela centralizada e maximizada
+    send(Dialog, transient_for, @nil). % Define a janela como independente
+
+acao_investigar_arredores(Parent) :-
+    free(Parent), % Destrói a janela anterior
+    new(Dialog, dialog('Investigar arredores')),
+    send(Dialog, size, size(1600, 900)), % Define o tamanho da janela
+
+    % Configuração do canvas para a imagem de fundo
+    send(Dialog, display, new(Canvas, picture)),
+    send(Canvas, size, size(1600, 400)), % Define o tamanho do canvas igual ao da janela
+    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+
+    % Configuração dos grupos de componentes
+    send(Dialog, display, new(TGroup, dialog_group(texts, group))),
+    send(Dialog, display, new(BGroup, dialog_group(buttons, group))),
+
+    % Configuração dos componentes de texto
+    send(TGroup, append, text('Você está investigando os arredores da praia. Você encontra uma mochila abandonada e uma partitura musical')),
+    send(TGroup, append, text('O que você deseja fazer?')),
+    send(TGroup, append, text('1. Investigar a mochila.')),
+    send(TGroup, append, text('2. Investigar partitura musical.')),
+    send(TGroup, append, text('3. Voltar.')),
+
+    % Configuração dos botões
+    send(BGroup, append, button(mochila, message(@prolog, acao_investigar_mochila, Dialog))),
+    send(BGroup, append, button(partitura, message(@prolog, acao_investigar_partitura, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
+
+    % Posicionamento dos componentes
+    send(Dialog, below, Canvas),
+    send(BGroup, below, TGroup),
+    send(Dialog, gap, size(0, 30)), % Espaço entre os componentes de texto e botões
+    send(Dialog, open_centered), % Abre a janela centralizada e maximizada
+    send(Dialog, transient_for, @nil). % Define a janela como independente
+
+
 
 fase(3, Parent) :-
     free(Parent), % Destrói a janela anterior
