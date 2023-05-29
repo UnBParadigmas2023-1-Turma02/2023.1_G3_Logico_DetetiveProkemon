@@ -4,6 +4,7 @@
 :- dynamic encontrou_pista/1.
 
 
+
 suspeito(benjaminBlackwood).
 suspeito(victoriaSinclair).
 suspeito(ethanDonova).
@@ -34,9 +35,9 @@ motivacao(gabriel_ramirez, vinganca).
 
 
 inicializa_canvas(Dialog, Canvas) :-
-    send(Dialog, size, size(1920, 900)), % Define o tamanho da janela
+    send(Dialog, size, size(1920, 600)), % Define o tamanho da janela
     % Configuração do canvas para a imagem de fundo
-    send(Canvas, size, size(1920, 400)), % Define o tamanho do canvas igual ao da janela
+    send(Canvas, size, size(1920,500)), % Define o tamanho do canvas igual ao da janela
     send(Canvas, scrollbars(none)).
 
 componentes(Dialog, Canvas, BGroup, TGroup) :-
@@ -50,16 +51,17 @@ componentes(Dialog, Canvas, BGroup, TGroup) :-
 fase(0) :-
     new(Dialog, dialog('Menu')),
     send(Dialog, display, new(Canvas, picture)),    
-    send(Dialog, size, size(1920, 900)), % Define o tamanho da janela
+    send(Dialog, size, size(1920,300)), % Define o tamanho da janela
     
     % Configuração do canvas para a imagem de fundo
-    send(Canvas, size, size(1920, 800)), % Define o tamanho do canvas igual ao da janela
+    send(Canvas, size, size(1920, 600)), % Define o tamanho do canvas igual ao da janela
     send(Canvas, scrollbars(none)),
     send(Canvas, display, new(BG, bitmap('images/inicio.jpg'))), % Define a imagem de fundo
 
     % Configuração dos grupos de componentes
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
+    % send(TGroup, display, new(T, text(TGroup, center, Font))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
     send(GGroup, size, size(1900, 200)),
@@ -68,8 +70,7 @@ fase(0) :-
     send(BGroup, alignment, center),
 
     % Configuração dos componentes de texto
-    
-    send(TGroup, append, text('Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"!')),
+    send(TGroup, append, text('Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"! \n')),
     send(TGroup, append, text('Você está convidado a embarcar nesta aventura! \n')),
     send(TGroup, append, text('1. Vamos nessa!.')),
     send(TGroup, append, text('2. Quem sabe em um outro dia.')),
@@ -548,6 +549,7 @@ acao_paradeiro_victoriaSinclair(Parent) :-
 ethanDonovan(Parent) :-
     free(Parent),
     new(Dialog, dialog('ethanDonovan')),
+    send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
     send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
