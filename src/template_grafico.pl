@@ -151,15 +151,29 @@ fase(0) :-
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
 
+
     % Configuração dos componentes de texto
-    send(TGroup, append, text('Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"! \n')),
-    send(TGroup, append, text('Você está convidado a embarcar nesta aventura! \n')),
-    send(TGroup, append, text('1. Vamos nessa!.')),
-    send(TGroup, append, text('2. Quem sabe em um outro dia.')),
+    Title = ['Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"! \n'],
+    Body = [
+      'Você está convidado a embarcar nesta aventura! \n',
+      '1. Vamos nessa!.',
+      '2. Quem sabe em um outro dia.'
+    ],
 
+    TitleType = bold,
+    BodyType = normal,
 
-    % Configuração dos botões
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
+
     send(BGroup, append, button(iniciar, message(@prolog, fase, 1, Dialog))),
+    % Configuração dos botões
     send(BGroup, append, button(sair, message(@prolog, sair, Dialog))),
 
 
@@ -189,22 +203,36 @@ fase(1, Parent) :-
     send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
-    send(TGroup, append, text('Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"!')),
-    send(TGroup, append, text('Você se encontra no luxuoso lobby de um hotel quando de repente um misterioso pokémon sai voando do topo da montanha emitindo um estrondoso som que ecoou por toda a ilha, e em um ato de fúria o pokémon dispara um poderoso ataque explosivo contra a ilha')),
-    send(TGroup, append, text('Após desaparecer, um senhor idoso grita "LUGIA!". Será possível? Apesar do nome da ilha, acreditava-se que Lugia não estava mais no local...')),
-    send(TGroup, append, text('Uma misteriosa voz começa a ecoar em sua cabeça, o que e quem seria?')),
-    send(TGroup, append, text('De repente um pokémon aparece e se apresenta como Celebi e conta que o ovo do poderoso Lugia foi roubado e agora está em fúria, que só poderá ser cessada quando o ovo for recuperado...')),
-    send(TGroup, append, text('Sua missão é desvendar esse intrigante crime, identificar o culpado e devolver o ovo para Lugia.')),
-    send(TGroup, append, text('Cada suspeito possui uma ligação com um Pokémon específico, e suas ações e relações podem revelar pistas importantes para chegar à verdade.')),
-    send(TGroup, append, text('Explore os diversos locais do hotel, como as celas, o escritório, a cozinha, o quarto e até mesmo a Montanha próxima.')),
-    send(TGroup, append, text('Lembre-se de que nem todas as evidências foram encontradas e nem todos os suspeitos são culpados.')),
-    send(TGroup, append, text('Faça perguntas estratégicas, analise cuidadosamente as informações disponíveis e use sua sagacidade para chegar à conclusão correta.')),
-    send(TGroup, append, text('Você está pronto(a) para enfrentar o desafio de "Pokémon Crime Investigation" e solucionar esse enigma intrigante?')),
-    send(TGroup, append, text('A verdade espera por você no coração deste hotel. Boa sorte, detetive!')),
-    send(TGroup, append, text('O que você deseja fazer? \n')),
-    send(TGroup, append, text('1. Investigar a praia.')),
-    send(TGroup, append, text('2. Falar com algum suspeito.')),
-    send(TGroup, append, text('3. Procurar pistas no hotel.')),
+    Title = ['Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"!'],
+    Body = [
+        'Você se encontra no luxuoso lobby de um hotel quando de repente um misterioso pokémon sai voando do topo da montanha emitindo um estrondoso som que ecoou por toda a ilha, e em um ato de fúria o pokémon dispara um poderoso ataque explosivo contra a ilha',
+        'Após desaparecer, um senhor idoso grita "LUGIA!". Será possível? Apesar do nome da ilha, acreditava-se que Lugia não estava mais no local...',
+        'Uma misteriosa voz começa a ecoar em sua cabeça, o que e quem seria?',
+        'De repente um pokémon aparece e se apresenta como Celebi e conta que o ovo do poderoso Lugia foi roubado e agora está em fúria, que só poderá ser cessada quando o ovo for recuperado...',
+        'Sua missão é desvendar esse intrigante crime, identificar o culpado e devolver o ovo para Lugia.',
+        'Cada suspeito possui uma ligação com um Pokémon específico, e suas ações e relações podem revelar pistas importantes para chegar à verdade.',
+        'Explore os diversos locais do hotel, como as celas, o escritório, a cozinha, o quarto e até mesmo a Montanha próxima.',
+        'Lembre-se de que nem todas as evidências foram encontradas e nem todos os suspeitos são culpados.',
+        'Faça perguntas estratégicas, analise cuidadosamente as informações disponíveis e use sua sagacidade para chegar à conclusão correta.',
+        'Você está pronto(a) para enfrentar o desafio de "Pokémon Crime Investigation" e solucionar esse enigma intrigante?',
+        'A verdade espera por você no coração deste hotel. Boa sorte, detetive!',
+        'O que você deseja fazer? \n',
+        '1. Investigar a praia.',
+        '2. Falar com algum suspeito.',
+        '3. Procurar pistas no hotel.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar a praia", message(@prolog, fase, 2, Dialog))),
@@ -239,11 +267,25 @@ fase(2, Parent) :-
     send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
-    send(TGroup, append, text('Você está na praia.')),
-    send(TGroup, append, text('O que você deseja fazer? \n')),
-    send(TGroup, append, text('1. Investigar os arredores.')),
-    send(TGroup, append, text('2. Procurar pegadas na areia.')),
-    send(TGroup, append, text('3. Conversar com outros hóspedes.')),
+    Title = ['Você está na praia.'],
+    Body = [
+    'O que você deseja fazer? \n',
+    '1. Investigar os arredores.',
+    '2. Procurar pegadas na areia.',
+    '3. Conversar com outros hóspedes.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
@@ -278,11 +320,25 @@ acao_procurar_pegadas(Parent) :-
     send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
-    send(TGroup, append, text('Você está investigando os arredores da praia e encontra pegadas de algum animal ou pokémon que se arrasta.')),
-    send(TGroup, append, text('Oque deseja fazer? \n')),
-    send(TGroup, append, text('1. Investigar melhor os arredores.')),
-    send(TGroup, append, text('2. Falar com suspeito.')),
-    send(TGroup, append, text('3. Voltar.')),
+    Title = ['Você está investigando os arredores da praia e encontra pegadas de algum animal ou pokémon que se arrasta.'],
+    Body = [
+    'O que deseja fazer? \n',
+    '1. Investigar melhor os arredores.',
+    '2. Falar com suspeito.',
+    '3. Voltar.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
@@ -316,11 +372,26 @@ acao_investigar_arredores(Parent) :-
     send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
-    send(TGroup, append, text('Você está investigando os arredores da praia. Você encontra uma mochila abandonada e uma partitura musical')),
-    send(TGroup, append, text('O que você deseja fazer? \n')),
-    send(TGroup, append, text('1. Investigar a mochila.')),
-    send(TGroup, append, text('2. Investigar partitura musical.')),
-    send(TGroup, append, text('3. Voltar.')),
+    Title = ['Você está investigando os arredores da praia. Você encontra uma mochila abandonada e uma partitura musical'],
+    Body = [
+    'O que você deseja fazer? \n',
+    '1. Investigar a mochila.',
+    '2. Investigar partitura musical.',
+    '3. Voltar.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
+
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar mochila", message(@prolog, acao_investigar_mochila, Dialog))),
@@ -354,8 +425,21 @@ acao_investigar_mochila(Parent) :-
     send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
-    send(TGroup, append, text('Você investiga a mochila.')),
-    send(TGroup, append, text('Você encontra uma tabela de valores de pokémon, mapa do local, recibo de transações suspeitas')),
+    Title = ['Você investiga a mochila.'],
+    Body = ['Você encontra uma tabela de valores de pokémon, mapa do local, recibo de transações suspeitas'],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
+
     % Atualiza a lista de pistas encontradas
     assert(encontrou_pista(tabela_valores_pokemon)),
     assert(encontrou_pista(mapa_local)),
@@ -398,8 +482,22 @@ acao_investigar_partitura(Parent) :-
     send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
-    send(TGroup, append, text('Você investiga a partitura.')),
-    send(TGroup, append, text('Você encontra uma partitura musical com anotações sobre o canto encantador de Primarina.')),
+    Title = ['Você investiga a partitura.'],
+    Body = ['Você encontra uma partitura musical com anotações sobre o canto encantador de Primarina.'],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
+
+
     % Atualiza a lista de pistas encontradas
     assert(encontrou_pista(partitura_musical)),
     send(TGroup, append, text('Você sabe quem é o dono da partitura.')),
@@ -443,17 +541,32 @@ fase(3, Parent) :-
     send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
-    send(TGroup, append, text('Com qual suspeito você deseja falar? \n')),
-    send(TGroup, append, text('1. Benjamin Blackwood.')),
-    send(TGroup, append, text('2. Victoria Sinclair.')),
-    send(TGroup, append, text('3. Ethan Donovan.')),
-    send(TGroup, append, text('4. Olivia Morgan.')),
-    send(TGroup, append, text('5. Sebastian Russo.')),
-    send(TGroup, append, text('6. Isabella Santiago.')),
-    send(TGroup, append, text('7. Jacob Gallagher.')),
-    send(TGroup, append, text('8. Sophia Chen.')),
-    send(TGroup, append, text('9. Gabriel Ramirez.')),
-    send(TGroup, append, text('10. Voltar.')),
+    Title = ['Com qual suspeito você deseja falar? \n'],
+    Body = [
+    '1. Benjamin Blackwood.',
+    '2. Victoria Sinclair.',
+    '3. Ethan Donovan.',
+    '4. Olivia Morgan.',
+    '5. Sebastian Russo.',
+    '6. Isabella Santiago.',
+    '7. Jacob Gallagher.',
+    '8. Sophia Chen.',
+    '9. Gabriel Ramirez.',
+    '10. Voltar.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
+
 
     % Configuração dos botões
     send(BGroup, append, button("Benjamin Blackwood", message(@prolog, benjaminBlackwood, Dialog))),
@@ -496,10 +609,25 @@ benjaminBlackwood(Parent) :-
     send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Você está investigando Benjamin Blackwood. O que você quer perguntar? \n')),
-    send(TGroup, append, text('1. Fale sobre você, por que você está aqui?')),
-    send(TGroup, append, text('2. O que você fez desde que chegou na ilha?')),
-    send(TGroup, append, text('3. Falar com mais suspeitos.')),
+    Title = ['Você está investigando Benjamin Blackwood. O que você quer perguntar? \n'],
+    Body = [
+    '1. Fale sobre você, por que você está aqui?',
+    '2. O que você fez desde que chegou na ilha?',
+    '3. Falar com mais suspeitos.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
+
 
     % Configuração dos botões
     send(BGroup, append, button("Pergunta 1", message(@prolog, acao_sobre_benjamin, Dialog))),
@@ -534,9 +662,23 @@ acao_sobre_benjamin(Parent) :-
     send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Resposta: Eu estou conhecendo a ilha e pesquisar espécies de pokémons. \n')),
-    send(TGroup, append, text('1. Fazer mais perguntas pro Benjamin.')),
-    send(TGroup, append, text('2. Voltar para o menu de suspeitos.')),
+    Title = ['Resposta: Eu estou conhecendo a ilha e pesquisar espécies de pokémons. \n'],
+    Body = [
+    '1. Fazer mais perguntas pro Benjamin.',
+    '2. Voltar para o menu de suspeitos.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
 
 
     % Configuração dos botões
@@ -574,10 +716,23 @@ acao_paradeiro_benjamin(Parent) :-
     send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Resposta: Eu estava na floresta, explorando. \n')),
-    send(TGroup, append, text('1. Fazer mais perguntas pro suspeito.')),
-    send(TGroup, append, text('2. Voltar para o menu de suspeitos.')),
+    Title = ['Resposta: Eu estava na floresta, explorando. \n'],
+    Body = [
+    '1. Fazer mais perguntas pro suspeito.',
+    '2. Voltar para o menu de suspeitos.'
+    ],
 
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
 
     % Configuração dos botões
     send(BGroup, append, button("Perguntar mais", message(@prolog, benjaminBlackwood, Dialog))),
@@ -612,10 +767,25 @@ victoriaSinclair(Parent) :-
     send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Você está investigando Benjamin Blackwood. O que você quer perguntar? \n')),
-    send(TGroup, append, text('1. Fale sobre você, por que você está aqui?')),
-    send(TGroup, append, text('2. O que você fez desde que chegou na ilha?')),
-    send(TGroup, append, text('3. Falar com mais suspeitos.')),
+    Title = ['Você está investigando Benjamin Blackwood. O que você quer perguntar? \n'],
+    Body = [
+    '1. Fale sobre você, por que você está aqui?',
+    '2. O que você fez desde que chegou na ilha?',
+    '3. Falar com mais suspeitos.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
+
 
     % Configuração dos botões
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_VictoriaSinclair, Dialog))),
@@ -651,9 +821,24 @@ acao_sobre_victoriaSinclair(Parent) :-
     send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Eu estou na ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. \n')),
-    send(TGroup, append, text('1. Voltar para o menu de suspeitos.')),
-    send(TGroup, append, text('2. Fazer mais perguntas pro Benjamin.')),
+    Title = ['Eu estou na ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. \n'],
+    Body = [
+    '1. Voltar para o menu de suspeitos.',
+    '2. Fazer mais perguntas pro Benjamin.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
+
 
     % Configuração dos botões
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
@@ -690,9 +875,24 @@ acao_paradeiro_victoriaSinclair(Parent) :-
     send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Eu estava meditando em um antigo templo abandonado, localizado na parte sul da ilha, longe da montanha onde ocorreu o roubo. Meu foco naquele momento era aprofundar meus conhecimentos sobre a energia espiritual dos Pokémon Fantasma, e eu estava sozinha no local. \n')),
-    send(TGroup, append, text('1. Voltar para o menu de suspeitos.')),
-    send(TGroup, append, text('2. Fazer mais perguntas pro suspeito.')),
+    Title = ['Eu estava meditando em um antigo templo abandonado, localizado na parte sul da ilha, longe da montanha onde ocorreu o roubo. Meu foco naquele momento era aprofundar meus conhecimentos sobre a energia espiritual dos Pokémon Fantasma, e eu estava sozinha no local. \n'],
+    Body = [
+    '1. Voltar para o menu de suspeitos.',
+    '2. Fazer mais perguntas pro suspeito.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
+
 
     % Configuração dos botões
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
@@ -726,10 +926,24 @@ ethanDonovan(Parent) :-
     send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Você está investigando Ethan Donovan. O que você quer perguntar? \n')),
-    send(TGroup, append, text('1. Fale sobre você, por que você está aqui?')),
-    send(TGroup, append, text('2. O que você fez desde que chegou na ilha?')),
-    send(TGroup, append, text('3. Falar com mais suspeitos.')),
+    Title = ['Você está investigando Ethan Donovan. O que você quer perguntar? \n'],
+    Body = [
+    '1. Fale sobre você, por que você está aqui?',
+    '2. O que você fez desde que chegou na ilha?',
+    '3. Falar com mais suspeitos.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
 
     % Configuração dos botões
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_EthanDonovan, Dialog))),
@@ -764,11 +978,27 @@ acao_paradeiro_EthanDonovan(Parent) :-
     send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Eu estava em meu laboratório particular na cidade vizinha
-            à ilha. Eu estava realizando experimentos e pesquisas relacionados à criação
-            e ao estudo de Pokémon, especificamente focados nas habilidades de transformação do Ditto. \n')),
-    send(TGroup, append, text('1. Voltar para o menu de suspeitos.')),
-    send(TGroup, append, text('2. Fazer mais perguntas pro suspeito.')),
+    Title = [
+      'Eu estava em meu laboratório particular na cidade vizinha à ilha.
+Eu estava realizando experimentos e pesquisas relacionados à criação
+e ao estudo de Pokémon, especificamente focados nas habilidades de transformação do Ditto. \n'
+    ],
+    Body = [
+    '1. Voltar para o menu de suspeitos.',
+    '2. Fazer mais perguntas pro suspeito.'
+    ],
+
+    TitleType = bold,
+    BodyType = normal,
+
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
 
     % Configuração dos botões
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
@@ -802,10 +1032,23 @@ acao_sobre_EthanDonovan(Parent) :-
     send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. \n')),
-    send(TGroup, append, text('1. Voltar para o menu de suspeitos.')),
-    send(TGroup, append, text('2. Fazer mais perguntas pro Benjamin.')),
+    Title = ['Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. \n'],
+    Body = [
+    '1. Voltar para o menu de suspeitos.',
+    '2. Fazer mais perguntas pro Benjamin.'
+    ],
+ 
+    TitleType = bold,
+    BodyType = normal,
 
+    get(type(font), check, TitleType, TitleFont),
+    get(type(font), check, BodyType, BodyFont),
+
+    same_type(Title, TitleType, Title_w_Type),
+    create_text_font(Title_w_Type, TGroup),
+  
+    same_type(Body, BodyType, Body_w_Type),
+    create_text_font(Body_w_Type, TGroup),
     % Configuração dos botões
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button('Ethan Donovan', message(@prolog, ethanDonovan, Dialog))),
@@ -820,4 +1063,4 @@ acao_sobre_EthanDonovan(Parent) :-
 
 % Função para iniciar o jogo
 iniciar_jogo :-
-    fase(0).
+  fase(0).
