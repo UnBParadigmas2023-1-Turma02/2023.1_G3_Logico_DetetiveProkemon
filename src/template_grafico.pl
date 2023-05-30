@@ -55,6 +55,12 @@ componentes(Dialog, Canvas, BGroup, TGroup) :-
     send(Dialog, open_centered), % Abre a janela centralizada e maximizada
     send(Dialog, transient_for, @nil). % Define a janela como independente
 
+abrirTelaSuspeito(Suspeito) :-
+    new(Dialog, dialog('Tela do Suspeito')),
+    send(Dialog, append, text('Informações sobre o suspeito:')),
+    send(Dialog, append, text(Suspeito)),
+    send(Dialog, open_centered),
+    send(Dialog, transient_for, @nil).
 
 lista_suspeitos(Fase, Parent) :-
     free(Parent),
@@ -83,7 +89,7 @@ lista_suspeitos(Fase, Parent) :-
     forall(nth1(Index, Suspeitos, Suspeito), (
     number_string(Index, IndexStr),
     concat_atom([IndexStr, ' - ', Suspeito], Text),
-    send(TGroup, append, text(Text)))),
+    send(TGroup, append, button(Text, message(@prolog, abrirTelaSuspeito, Suspeito))))),
 
     (   number(Fase) ->
         send(BGroup, append, button(fechar, message(@prolog, fase, Fase, Dialog))),
