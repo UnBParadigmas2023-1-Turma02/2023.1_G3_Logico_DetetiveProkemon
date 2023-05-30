@@ -5,6 +5,6 @@
     
 
 - **Projeto**
-    - [Aspectos Técnicos](./pages/projeto.md)
+    - [Sobre](./pages/projeto.md)
 
  
