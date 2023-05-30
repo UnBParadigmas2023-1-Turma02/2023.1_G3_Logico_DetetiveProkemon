@@ -196,7 +196,7 @@ fase(1, Parent) :-
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
     send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 450)),
+    send(GGroup, size, size(1920, 500)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
@@ -260,7 +260,7 @@ fase(2, Parent) :-
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
     send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
+    send(GGroup, size, size(1920, 500)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
@@ -305,7 +305,7 @@ acao_procurar_pegadas(Parent) :-
     new(Dialog, dialog('Procurar pegadas')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/rastro.jpg'))), % Define a imagem de fundo
 
     % Configuração dos grupos de componentes
     send(Dialog, display, new(GGroup, dialog_group(""))),
@@ -313,7 +313,7 @@ acao_procurar_pegadas(Parent) :-
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
     send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
+    send(GGroup, size, size(1920, 500)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
@@ -357,7 +357,7 @@ acao_investigar_arredores(Parent) :-
     new(Dialog, dialog('Investigar arredores')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/mochila_partitura.jpg'))), % Define a imagem de fundo
 
     % Configuração dos grupos de componentes
     send(Dialog, display, new(GGroup, dialog_group(""))),
@@ -410,7 +410,7 @@ acao_investigar_mochila(Parent) :-
     new(Dialog, dialog('Investigar mochila')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/lista_mapa_recibo.jpg'))), % Define a imagem de fundo
 
     % Configuração dos grupos de componentes
     send(Dialog, display, new(GGroup, dialog_group(""))),
@@ -467,7 +467,7 @@ acao_investigar_partitura(Parent) :-
     new(Dialog, dialog('Investigar partitura')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/partitura_investigada.jpg'))), % Define a imagem de fundo
 
     % Configuração dos grupos de componentes
     send(Dialog, display, new(GGroup, dialog_group(""))),
@@ -475,7 +475,7 @@ acao_investigar_partitura(Parent) :-
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
     send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
+    send(GGroup, size, size(1900, 500)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
@@ -525,7 +525,7 @@ fase(3, Parent) :-
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
 
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/suspeitos.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
@@ -593,7 +593,7 @@ benjaminBlackwood(Parent) :-
     new(Dialog, dialog('benjaminBlackwood')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/male1.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
@@ -646,7 +646,7 @@ acao_sobre_benjamin(Parent) :-
     new(Dialog, dialog('acao_sobre_benjamin')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/male1.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
@@ -700,7 +700,7 @@ acao_paradeiro_benjamin(Parent) :-
     new(Dialog, dialog('acao_paradeiro_benjamin')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/male1.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
@@ -751,7 +751,7 @@ victoriaSinclair(Parent) :-
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
 
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/female1.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
@@ -805,7 +805,7 @@ acao_sobre_victoriaSinclair(Parent) :-
     new(Dialog, dialog('acao_sobre_victoriaSinclair')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/female1.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
@@ -859,7 +859,7 @@ acao_paradeiro_victoriaSinclair(Parent) :-
     new(Dialog, dialog('acao_paradeiro_victoriaSinclair')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/female1.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
@@ -910,7 +910,7 @@ ethanDonovan(Parent) :-
     new(Dialog, dialog('ethanDonovan')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/male2.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
@@ -962,7 +962,7 @@ acao_paradeiro_EthanDonovan(Parent) :-
     new(Dialog, dialog('acao_paradeiro_ethanDonovan')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/male.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
@@ -1016,7 +1016,7 @@ acao_sobre_EthanDonovan(Parent) :-
     new(Dialog, dialog('acao_sobre_ethanDonovan')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/pikachu.gif'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, bitmap('images/male2.jpg'))), % Define a imagem de fundo
     send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
     % Configuração dos grupos de componentes
