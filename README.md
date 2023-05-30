@@ -15,6 +15,7 @@
 | Erick Melo Vidal de Oliveira | 190027355 |
 | João Victor Max Bisinotti de Oliveira | 170069991 |
 | Klyssmann Henrique Ferreira de Oliveira | 202028202 |
+| Mariana Oliveira Pires do Rio | 190058455 |
 | Vitor Eduardo Kühl Rodrigues | 190118288 |
 
 ## Sobre 
