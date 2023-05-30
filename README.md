@@ -20,7 +20,7 @@
 ## Sobre 
 Em um dia ensolarado, Ash desembarcou em uma ilha remota para desfrutar de suas merecidas férias. Essa ilha, famosa por ser o antigo habitat do lendário Pokémon Lugia, foi cuidadosamente escolhida como destino de sua viagem. Ash estava ansioso para se maravilhar com a beleza natural e a serenidade do local, enquanto se aventurava em busca de novos Pokémons. No entanto, ele não fazia ideia de que suas férias pacíficas estavam prestes a se transformar em uma emocionante e imprevisível jornada.
 
-Na manhã seguinte, um estrondo estrondoso rompeu o silêncio, fazendo com que todos voltassem sua atenção para o céu. Para surpresa de todos, uma imponente criatura alada emergiu das profundezas da montanha, liberando um poderoso ataque explosivo em direção à ilha, antes de desaparecer misteriosamente. O som de seu grito angustiado ecoava pelos ares, deixando todos perplexos e cheios de perguntas.
+Na manhã seguinte, um estrondo rompeu o silêncio, fazendo com que todos voltassem sua atenção para o céu. Para surpresa de todos, uma imponente criatura alada emergiu das profundezas da montanha, liberando um poderoso ataque explosivo em direção à ilha, antes de desaparecer misteriosamente. O som de seu grito angustiado ecoava pelos ares, deixando todos perplexos e cheios de perguntas.
 
 O que teria acontecido? Aquele Pokémon era realmente Lugia? Apesar do nome da ilha, há muito tempo não se tinha notícias da presença dessa lendária criatura. Mas, o que teria motivado esse evento extraordinário?
 
