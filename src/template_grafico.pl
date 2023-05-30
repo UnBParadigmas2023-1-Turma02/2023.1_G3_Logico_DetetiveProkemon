@@ -15,6 +15,11 @@ suspeito(jacobGallagher).
 suspeito(sophiaChen).
 suspeito(gabrielRamirez).
 
+suspeito_pokemon(victoriaSinclair, pikachu).
+
+pokemon(pikachu).
+tipo_pokemon(pikachu, eletrico).
+
 cenario(lobby_hotel).
 cenario(praia).
 cenario(celas).
@@ -55,19 +60,28 @@ componentes(Dialog, Canvas, BGroup, TGroup) :-
     send(Dialog, open_centered), % Abre a janela centralizada e maximizada
     send(Dialog, transient_for, @nil). % Define a janela como independente
 
-abrirTelaSuspeito(Suspeito) :-
-    new(Dialog, dialog('Tela do Suspeito')),
+abrirInformacoesSuspeito(Suspeito) :-
+    new(Dialog, dialog('Informações do Suspeito')),
     send(Dialog, append, text('Informações sobre o suspeito:')),
     send(Dialog, append, text(Suspeito)),
+
+    send(Dialog, append, text('\nPokemon do suspeito:')),
+    suspeito_pokemon(Suspeito, Pokemon),
+    send(Dialog, append, text(Pokemon)),
+
+    send(Dialog, append, text('\nTipo do Pokemon:')),
+    tipo_pokemon(Pokemon, Tipo),
+    send(Dialog, append, text(Tipo)),
+
     send(Dialog, open_centered),
     send(Dialog, transient_for, @nil).
 
-lista_suspeitos(Fase, Parent) :-
+lista_suspeitos(Fase, Parent, Image) :-
     free(Parent),
     new(Dialog, dialog('Lista de Suspeitos')),
     send(Dialog, display, new(Canvas, picture)),
     inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/lobby.jpg'))), % Define a imagem de fundo
+    send(Canvas, display, new(BG, Image)), % Define a imagem de fundo
 
     % Configuração dos grupos de componentes
     send(Dialog, display, new(GGroup, dialog_group(""))),
@@ -89,7 +103,7 @@ lista_suspeitos(Fase, Parent) :-
     forall(nth1(Index, Suspeitos, Suspeito), (
     number_string(Index, IndexStr),
     concat_atom([IndexStr, ' - ', Suspeito], Text),
-    send(TGroup, append, button(Text, message(@prolog, abrirTelaSuspeito, Suspeito))))),
+    send(TGroup, append, button(Text, message(@prolog, abrirInformacoesSuspeito, Suspeito))))),
 
     (   number(Fase) ->
         send(BGroup, append, button(fechar, message(@prolog, fase, Fase, Dialog))),
@@ -182,7 +196,7 @@ fase(1, Parent) :-
     send(BGroup, append, button("Procurar no hotel", message(@prolog, fase, 4, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 1, Dialog))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 1, Dialog, bitmap('images/lobby.jpg')))),
 
 
     % Posicionamento dos componentes
