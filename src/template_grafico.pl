@@ -40,6 +40,14 @@ inicializa_canvas(Dialog, Canvas) :-
     send(Canvas, size, size(1920,500)), % Define o tamanho do canvas igual ao da janela
     send(Canvas, scrollbars(none)).
 
+componentes(Dialog, Canvas, BGroup, TGroup, SGroup) :-
+    send(Dialog, below, Canvas),
+    send(BGroup, below, TGroup),
+    send(SGroup, below, BGroup),
+    send(Dialog, gap, size(0, 30)), % Espaço entre os componentes de texto e botões
+    send(Dialog, open_centered), % Abre a janela centralizada e maximizada
+    send(Dialog, transient_for, @nil). % Define a janela como independente
+
 componentes(Dialog, Canvas, BGroup, TGroup) :-
     send(Dialog, below, Canvas),
     send(BGroup, below, TGroup),
@@ -47,12 +55,49 @@ componentes(Dialog, Canvas, BGroup, TGroup) :-
     send(Dialog, open_centered), % Abre a janela centralizada e maximizada
     send(Dialog, transient_for, @nil). % Define a janela como independente
 
+
+lista_suspeitos(Fase, Parent) :-
+    free(Parent),
+    new(Dialog, dialog('Lista de Suspeitos')),
+    send(Dialog, display, new(Canvas, picture)),
+    inicializa_canvas(Dialog, Canvas),
+    send(Canvas, display, new(BG, bitmap('images/lobby.jpg'))), % Define a imagem de fundo
+
+    % Configuração dos grupos de componentes
+    send(Dialog, display, new(GGroup, dialog_group(""))),
+    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
+    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, layout_dialog),
+    send(GGroup, size, size(1880, 300)),
+    send(GGroup, alignment, center),
+    send(TGroup, alignment, center),
+    send(BGroup, alignment, center),
+
+    send(TGroup, append, text('LISTA DE SUSPEITOS \n\n')),
+
+    % Configuração dos componentes de texto
+
+    % Adiciona cada suspeito ao grupo de texto
+    findall(Suspeito, suspeito(Suspeito), Suspeitos), % Obtém a lista de suspeitos
+    length(Suspeitos, N), % Obtém o tamanho da lista de suspeitos
+    forall(nth1(Index, Suspeitos, Suspeito), (
+    number_string(Index, IndexStr),
+    concat_atom([IndexStr, ' - ', Suspeito], Text),
+    send(TGroup, append, text(Text)))),
+
+    (   number(Fase) ->
+        send(BGroup, append, button(fechar, message(@prolog, fase, Fase, Dialog))),
+        componentes(Dialog, Canvas, BGroup, TGroup)
+    ;   send(BGroup, append, button(fechar, message(@prolog, Fase, Dialog))),
+        componentes(Dialog, Canvas, BGroup, TGroup)
+    ).
+
 % Definição das fases
 fase(0) :-
     new(Dialog, dialog('Menu')),
-    send(Dialog, display, new(Canvas, picture)),    
+    send(Dialog, display, new(Canvas, picture)),
     send(Dialog, size, size(1920,300)), % Define o tamanho da janela
-    
+
     % Configuração do canvas para a imagem de fundo
     send(Canvas, size, size(1920, 600)), % Define o tamanho do canvas igual ao da janela
     send(Canvas, scrollbars(none)),
@@ -63,6 +108,7 @@ fase(0) :-
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     % send(TGroup, display, new(T, text(TGroup, center, Font))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+
     send(GGroup, layout_dialog),
     send(GGroup, size, size(1900, 200)),
     send(GGroup, alignment, center),
@@ -74,12 +120,11 @@ fase(0) :-
     send(TGroup, append, text('Você está convidado a embarcar nesta aventura! \n')),
     send(TGroup, append, text('1. Vamos nessa!.')),
     send(TGroup, append, text('2. Quem sabe em um outro dia.')),
-    
+
 
     % Configuração dos botões
     send(BGroup, append, button(iniciar, message(@prolog, fase, 1, Dialog))),
     send(BGroup, append, button(sair, message(@prolog, sair, Dialog))),
-    
 
 
     % Posicionamento dos componentes
@@ -99,11 +144,13 @@ fase(1, Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 400)),
+    send(GGroup, size, size(1900, 450)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
     send(TGroup, append, text('Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"!')),
@@ -128,8 +175,12 @@ fase(1, Parent) :-
     send(BGroup, append, button("Falar com suspeitos", message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button("Procurar no hotel", message(@prolog, fase, 4, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 1, Dialog))),
+
+
     % Posicionamento dos componentes
-    componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 fase(2, Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -143,11 +194,13 @@ fase(2, Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 200)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
     send(TGroup, append, text('Você está na praia.')),
@@ -161,8 +214,12 @@ fase(2, Parent) :-
     send(BGroup, append, button("Procurar pegadas", message(@prolog, acao_procurar_pegadas, Dialog))),
     send(BGroup, append, button("Conversar com os hóspodes", message(@prolog, fase, 3, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog))),
+
+
     % Posicionamento dos componentes
-    componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
 acao_procurar_pegadas(Parent) :-
@@ -176,11 +233,13 @@ acao_procurar_pegadas(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 200)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
     send(TGroup, append, text('Você está investigando os arredores da praia e encontra pegadas de algum animal ou pokémon que se arrasta.')),
@@ -188,14 +247,18 @@ acao_procurar_pegadas(Parent) :-
     send(TGroup, append, text('1. Investigar melhor os arredores.')),
     send(TGroup, append, text('2. Falar com suspeito.')),
     send(TGroup, append, text('3. Voltar.')),
-    
+
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
     send(BGroup, append, button("Falar com o suspeito", message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_procurar_pegadas, Dialog))),
+
+
     % Posicionamento dos componentes
-    componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_investigar_arredores(Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -208,11 +271,13 @@ acao_investigar_arredores(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 200)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
     send(TGroup, append, text('Você está investigando os arredores da praia. Você encontra uma mochila abandonada e uma partitura musical')),
@@ -226,8 +291,12 @@ acao_investigar_arredores(Parent) :-
     send(BGroup, append, button("Investigar partitura", message(@prolog, acao_investigar_partitura, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_arredores, Dialog))),
+
+
     % Posicionamento dos componentes
-    componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_investigar_mochila(Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -240,11 +309,13 @@ acao_investigar_mochila(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 200)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
     send(TGroup, append, text('Você investiga a mochila.')),
@@ -264,8 +335,12 @@ acao_investigar_mochila(Parent) :-
     send(BGroup, append, button("Falar com o suspeito", message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button("Ir para Floresta", message(@prolog, fase, 4, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_mochila, Dialog))),
+
+
     % Posicionamento dos componentes
-    componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_investigar_partitura(Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -278,11 +353,13 @@ acao_investigar_partitura(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 200)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
     send(TGroup, append, text('Você investiga a partitura.')),
@@ -300,8 +377,12 @@ acao_investigar_partitura(Parent) :-
     send(BGroup, append, button("Falar com o suspeito", message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button("Ir para Floresta", message(@prolog, fase, 4, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_partitura, Dialog))),
+
+
     % Posicionamento dos componentes
-    componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
 fase(3, Parent) :-
@@ -317,11 +398,13 @@ fase(3, Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
     send(GGroup, size, size(1900, 400)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
     % Configuração dos componentes de texto
     send(TGroup, append, text('Com qual suspeito você deseja falar? \n')),
@@ -348,8 +431,12 @@ fase(3, Parent) :-
     send(BGroup, append, button("Gabriel Ramirez", message(@prolog, gabrielRamirez, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 3, Dialog))),
+
+
     % Posicionamento dos componentes
-   componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
 benjaminBlackwood(Parent) :-
@@ -364,11 +451,13 @@ benjaminBlackwood(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 200)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
     send(TGroup, append, text('Você está investigando Benjamin Blackwood. O que você quer perguntar? \n')),
@@ -381,8 +470,12 @@ benjaminBlackwood(Parent) :-
     send(BGroup, append, button("Pergunta 2", message(@prolog, acao_paradeiro_benjamin, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, benjaminBlackwood, Dialog))),
+
+
     % Posicionamento dos componentes
-   componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_sobre_benjamin(Parent) :-
     free(Parent),
@@ -396,11 +489,13 @@ acao_sobre_benjamin(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 200)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
     send(TGroup, append, text('Resposta: Eu estou conhecendo a ilha e pesquisar espécies de pokémons. \n')),
@@ -412,10 +507,14 @@ acao_sobre_benjamin(Parent) :-
 
     send(BGroup, append, button("Perguntar mais", message(@prolog, benjaminBlackwood, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
-    
+
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_benjamin, Dialog))),
+
 
     % Posicionamento dos componentes
-   componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
 acao_paradeiro_benjamin(Parent) :-
@@ -430,11 +529,13 @@ acao_paradeiro_benjamin(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 200)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
     send(TGroup, append, text('Resposta: Eu estava na floresta, explorando. \n')),
@@ -446,8 +547,12 @@ acao_paradeiro_benjamin(Parent) :-
     send(BGroup, append, button("Perguntar mais", message(@prolog, benjaminBlackwood, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_benjamin, Dialog))),
+
+
     % Posicionamento dos componentes
-   componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 victoriaSinclair(Parent) :-
     free(Parent),
@@ -462,11 +567,13 @@ victoriaSinclair(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 400)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
     send(TGroup, append, text('Você está investigando Benjamin Blackwood. O que você quer perguntar? \n')),
@@ -479,8 +586,12 @@ victoriaSinclair(Parent) :-
     send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_VictoriaSinclair, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, victoriaSinclair, Dialog))),
+
+
     % Posicionamento dos componentes
-   componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
 acao_sobre_victoriaSinclair(Parent) :-
@@ -495,11 +606,13 @@ acao_sobre_victoriaSinclair(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 400)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
     send(TGroup, append, text('Eu estou na ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. \n')),
@@ -510,10 +623,14 @@ acao_sobre_victoriaSinclair(Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, victoriaSinclair, Dialog))),
 
-    
+
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_victoriaSinclair, Dialog))),
+
 
     % Posicionamento dos componentes
-   componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
 acao_paradeiro_victoriaSinclair(Parent) :-
@@ -528,11 +645,13 @@ acao_paradeiro_victoriaSinclair(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 400)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
     send(TGroup, append, text('Eu estava meditando em um antigo templo abandonado, localizado na parte sul da ilha, longe da montanha onde ocorreu o roubo. Meu foco naquele momento era aprofundar meus conhecimentos sobre a energia espiritual dos Pokémon Fantasma, e eu estava sozinha no local. \n')),
@@ -543,8 +662,12 @@ acao_paradeiro_victoriaSinclair(Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, victoriaSinclair, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_victoriaSinclair, Dialog))),
+
+
     % Posicionamento dos componentes
-   componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 ethanDonovan(Parent) :-
     free(Parent),
@@ -558,11 +681,13 @@ ethanDonovan(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 400)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
     send(TGroup, append, text('Você está investigando Ethan Donovan. O que você quer perguntar? \n')),
@@ -574,9 +699,13 @@ ethanDonovan(Parent) :-
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_EthanDonovan, Dialog))),
     send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_EthanDonovan, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
-    
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, ethanDonovan, Dialog))),
+
+
     % Posicionamento dos componentes
-   componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_paradeiro_EthanDonovan(Parent) :-
     free(Parent),
@@ -590,15 +719,17 @@ acao_paradeiro_EthanDonovan(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 400)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
-    send(TGroup, append, text('Eu estava em meu laboratório particular na cidade vizinha 
-            à ilha. Eu estava realizando experimentos e pesquisas relacionados à criação 
+    send(TGroup, append, text('Eu estava em meu laboratório particular na cidade vizinha
+            à ilha. Eu estava realizando experimentos e pesquisas relacionados à criação
             e ao estudo de Pokémon, especificamente focados nas habilidades de transformação do Ditto. \n')),
     send(TGroup, append, text('1. Voltar para o menu de suspeitos.')),
     send(TGroup, append, text('2. Fazer mais perguntas pro suspeito.')),
@@ -607,8 +738,12 @@ acao_paradeiro_EthanDonovan(Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button('Ethan Donovan', message(@prolog, ethanDonovan, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_EthanDonovan, Dialog))),
+
+
     % Posicionamento dos componentes
-   componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_sobre_EthanDonovan(Parent) :-
     free(Parent),
@@ -622,11 +757,13 @@ acao_sobre_EthanDonovan(Parent) :-
     send(Dialog, display, new(GGroup, dialog_group(""))),
     send(GGroup, display, new(TGroup, dialog_group(texts, group))),
     send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
     send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 400)),
+    send(GGroup, size, size(1900, 300)),
     send(GGroup, alignment, center),
     send(TGroup, alignment, center),
     send(BGroup, alignment, center),
+    send(SGroup, alignment, center),
 
      % Configuração dos componentes de texto
     send(TGroup, append, text('Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. \n')),
@@ -637,8 +774,12 @@ acao_sobre_EthanDonovan(Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button('Ethan Donovan', message(@prolog, ethanDonovan, Dialog))),
 
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_EthanDonovan, Dialog))),
+
+
     % Posicionamento dos componentes
-    componentes(Dialog, Canvas, BGroup, TGroup).
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
 % Função para iniciar o jogo
