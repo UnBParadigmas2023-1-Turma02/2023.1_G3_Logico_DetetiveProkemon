@@ -3,7 +3,11 @@
 :- dynamic suspeito/1.
 :- dynamic encontrou_pista/1.
 
-
+display.user_fonts: \
+        [ normal := font(helvetica, roman, 14), \
+          bold   := font(helvetica, bold, 50), \
+          italic := font(helvetica, italic, 14) \
+        ]
 
 suspeito(benjaminBlackwood).
 suspeito(victoriaSinclair).
@@ -60,6 +64,17 @@ componentes(Dialog, Canvas, BGroup, TGroup) :-
     send(Dialog, gap, size(0, 30)), % Espaço entre os componentes de texto e botões
     send(Dialog, open_centered), % Abre a janela centralizada e maximizada
     send(Dialog, transient_for, @nil). % Define a janela como independente
+
+same_type([], _, []).
+same_type([Text|TextList], Type, [(Text, Type)|Tuples]) :-
+    same_type(TextList, Type, Tuples).
+
+create_text_font([], _).
+create_text_font([(Text, Type)|Text_w_Type], Group) :-
+    member(Type, [bold, normal, italic]),
+    get(type(font), check, Type, Font),
+    send(Group, append, text(Text, font := Font)),
+    create_text_font(Text_w_Type, Group).
 
 abrirInformacoesSuspeito(Suspeito) :-
     new(Dialog, dialog('Informações do Suspeito')),
