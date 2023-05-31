@@ -263,7 +263,7 @@ fase(3) :-
 benjaminBlackwood:-
     
     write('Você está investigando Benjamin Blackwood. O que você quer perguntar?'), nl,
-    write('1. Fale sobre você, por que você está aqui? .'), nl,
+    write('1. Fale sobre você, por que você está aqui e qual seu Pokémon? .'), nl,
     write('2. O que você fez desde que chegou na ilha? .'), nl,
     write('3. Falar com mais suspeitos.'), nl,
     read(Opcao),
@@ -273,7 +273,7 @@ benjaminBlackwood:-
         Opcao = 2 -> fase(3)
     ).
     acao_sobre_benjamin:-
-      write('Resposta: Vim conhecer a ilha e pesquisar espécies de pokémons.'), nl,
+      write('Resposta: Vim conhecer a ilha e pesquisar espécies de pokémons. Meu pokémon é o Persian.'), nl,
       write('1. Voltar para o menu de suspeitos.'), nl,
       write('2. Fazer mais perguntas pro Benjamin.'), nl,
       read(Opcao),
@@ -283,7 +283,7 @@ benjaminBlackwood:-
     ).
       
     acao_paradeiro_benjamin:-
-      write('Resposta: Eu estava na floresta, explorando.'), nl,
+      write('Resposta: Eu estava na floresta, explorando. Antes de ir a floresta perdi minha mochila.'), nl,
       write('1. Voltar para o menu de suspeitos.'), nl,
       write('2. Fazer mais perguntas pro suspeito.'), nl,
       read(Opcao),
@@ -295,7 +295,7 @@ benjaminBlackwood:-
      victoriaSinclair:-
     
     write('Você está investigando Benjamin Blackwood. O que você quer perguntar?'), nl,
-    write('1. Fale sobre você, por que você está aqui? .'), nl,
+    write('1. Fale sobre você, por que você está aqui? e qual seu Pokémon? '), nl,
     write('2. O que você fez desde que chegou na ilha? .'), nl,
     write('3. Falar com mais suspeitos.'), nl,
     read(Opcao),
@@ -305,7 +305,7 @@ benjaminBlackwood:-
         Opcao = 2 -> fase(3)
     ).
     acao_sobre_VictoriaSinclair:-
-      write('Vim  a ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único.'), nl,
+      write('Vim  a ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. Meu pokémon é o Mismagius'), nl,
        write('1. Voltar para o menu de suspeitos.'), nl,
       write('2. Fazer mais perguntas pro suspeito.'), nl,
       read(Opcao),
@@ -327,7 +327,7 @@ benjaminBlackwood:-
      ethanDonovan:-
     
     write('Você está investigando Benjamin Blackwood. O que você quer perguntar?'), nl,
-    write('1. Fale sobre você, por que você está aqui? .'), nl,
+    write('1. Fale sobre você, por que você está aqui? e qual seu Pokémon? '), nl,
     write('2. O que você fez desde que chegou na ilha? .'), nl,
     write('3. Falar com mais suspeitos.'), nl,
     read(Opcao),
@@ -337,7 +337,7 @@ benjaminBlackwood:-
         Opcao = 2 -> fase(3)
     ).
     acao_sobre_EthanDonovan:-
-      write('Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes.'), nl,
+      write('Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes.  Meu pokémon é o Ditto'), nl,
       write('1. Voltar para o menu de suspeitos.'), nl,
       write('2. Fazer mais perguntas pro suspeita.'), nl,
       read(Opcao),
