@@ -244,6 +244,7 @@ fase(3) :-
     write('8. Sophia Chen.'), nl,
     write('9. Gabriel Ramirez.'), nl,
     write('10. Voltar.'), nl , 
+    write('11. Investigar floresta.'), nl , 
     read(Opcao),
     (
         Opcao = 1 -> benjaminBlackwood;
@@ -255,7 +256,8 @@ fase(3) :-
         Opcao = 7 -> jacobGallagher;
         Opcao = 8 -> sophiaChen;
         Opcao = 9 -> gabrielRamirez;
-        Opcao = 10 -> fase(3)
+        Opcao = 10 -> fase(3);
+        Opcao = 11 -> fase(4)
     ).
 
     
@@ -554,7 +556,7 @@ fase(4) :-
     read(Opcao),
     (
         Opcao = 1 -> acao_investigar_mata;
-        Opcao = 2 -> acao_seguir_trilha;
+        Opcao = 2 -> acao_seguir_trilha
     ).
 
 acao_investigar_mata :-
@@ -567,6 +569,7 @@ acao_investigar_mata :-
     (
         Opcao = 1 -> acao_investigar_mata;
         Opcao = 2 -> fase(4)
+        
     ).
 
 acao_seguir_trilha :-
@@ -604,7 +607,7 @@ acao_conversar_acampado :-
     read(Opcao),
     (
         Opcao = 1 -> acao_investigar_acampamento;
-        Opcao = 2 -> fase(?)
+        Opcao = 2 -> fase(4)
     ).         
 
 % % Template que está abaixo
