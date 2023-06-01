@@ -226,23 +226,9 @@ init_fase(DialogText, ImagePath, Title, Body, ThisDialog, ThisCanvas, ThisBG, Th
 
 fase(1, Parent) :-
     free(Parent), % Destrói a janela anterior
-    new(Dialog, dialog('Lobby')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/lobby.jpg'))), % Define a imagem de fundo
-
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1920, 500)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
+    ScreenText = 'Lobby',
+    ImagePath = 'images/lobby.jpg', % Define a imagem de fundo
+    
     % Configuração dos componentes de texto
     Title = ['Bem-vindo(a) ao jogo de mistério "Pokémon Crime Investigation"!'],
     Body = [
@@ -263,17 +249,10 @@ fase(1, Parent) :-
         '3. Procurar pistas no hotel.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar a praia", message(@prolog, fase, 2, Dialog))),
@@ -289,7 +268,7 @@ fase(1, Parent) :-
 fase(2, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Praia',
-    init_fase(ScreenText, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup),
+    ImagePath = './images/praia.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está na praia.'],
