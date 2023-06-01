@@ -416,31 +416,14 @@ acao_investigar_partitura(Parent) :-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_partitura, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
 fase(3, Parent) :-
     free(Parent), % Destrói a janela anterior
-    new(Dialog, dialog('Fase 3')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-
-    send(Canvas, display, new(BG, bitmap('images/suspeitos.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
-
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 400)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
+    ScreenText = 'Fase 3',
+    ImagePath = './images/suspeitos.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Com qual suspeito você deseja falar? \n'],
@@ -457,19 +440,10 @@ fase(3, Parent) :-
     '10. Voltar.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
-
-
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
+    
     % Configuração dos botões
     send(BGroup, append, button("Benjamin Blackwood", message(@prolog, benjaminBlackwood, Dialog))),
     send(BGroup, append, button("Victoria Sinclair", message(@prolog, victoriaSinclair, Dialog))),
@@ -480,11 +454,10 @@ fase(3, Parent) :-
     send(BGroup, append, button("Jacob Gallagher", message(@prolog, jacobGallagher, Dialog))),
     send(BGroup, append, button("Sophia Chen", message(@prolog, sophiaChen, Dialog))),
     send(BGroup, append, button("Gabriel Ramirez", message(@prolog, gabrielRamirez, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog, ))),
+    send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 3, Dialog, bitmap('images/lista_suspeitos.jpg')))),
-
 
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
@@ -492,25 +465,10 @@ fase(3, Parent) :-
 
 benjaminBlackwood(Parent) :-
     free(Parent),
-    new(Dialog, dialog('benjaminBlackwood')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/male1.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+    ScreenText = 'benjaminBlackwood',
+    ImagePath = 'images/male1.jpg',
 
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-     % Configuração dos componentes de texto
+    % Configuração dos componentes de texto
     Title = ['Você está investigando Benjamin Blackwood. O que você quer perguntar? \n'],
     Body = [
     '1. Fale sobre você, por que você está aqui?',
@@ -518,18 +476,9 @@ benjaminBlackwood(Parent) :-
     '3. Falar com mais suspeitos.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
-
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
     send(BGroup, append, button("Pergunta 1", message(@prolog, acao_sobre_benjamin, Dialog))),
@@ -539,59 +488,31 @@ benjaminBlackwood(Parent) :-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, benjaminBlackwood, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_sobre_benjamin(Parent) :-
     free(Parent),
-    new(Dialog, dialog('acao_sobre_benjamin')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/male1.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+    ScreenText = 'acao_sobre_benjamin',
+    ImagePath = 'images/male1.jpg',
 
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-     % Configuração dos componentes de texto
+    % Configuração dos componentes de texto
     Title = ['Resposta: Eu estou conhecendo a ilha e pesquisar espécies de pokémons. \n'],
     Body = [
     '1. Fazer mais perguntas pro Benjamin.',
     '2. Voltar para o menu de suspeitos.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
-
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
-
     send(BGroup, append, button("Perguntar mais", message(@prolog, benjaminBlackwood, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
 
-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_benjamin, Dialog, bitmap('images/lista_suspeitos.jpg')))),
-
 
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
@@ -599,42 +520,19 @@ acao_sobre_benjamin(Parent) :-
 
 acao_paradeiro_benjamin(Parent) :-
     free(Parent),
-    new(Dialog, dialog('acao_paradeiro_benjamin')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/male1.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+    ScreenText = 'acao_paradeiro_benjamin',
+    ImagePath = 'images/male1.jpg',
 
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-     % Configuração dos componentes de texto
+    % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava na floresta, explorando. \n'],
     Body = [
     '1. Fazer mais perguntas pro suspeito.',
     '2. Voltar para o menu de suspeitos.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
     send(BGroup, append, button("Perguntar mais", message(@prolog, benjaminBlackwood, Dialog))),
@@ -643,32 +541,15 @@ acao_paradeiro_benjamin(Parent) :-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_benjamin, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 victoriaSinclair(Parent) :-
     free(Parent),
-    new(Dialog, dialog('victoriaSinclair')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
+    ScreenText = 'victoriaSinclair',
+    ImagePath = 'images/female1.jpg',
 
-    send(Canvas, display, new(BG, bitmap('images/female1.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
-
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-     % Configuração dos componentes de texto
+   % Configuração dos componentes de texto
     Title = ['Você está investigando Benjamin Blackwood. O que você quer perguntar? \n'],
     Body = [
     '1. Fale sobre você, por que você está aqui?',
@@ -676,18 +557,9 @@ victoriaSinclair(Parent) :-
     '3. Falar com mais suspeitos.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
-
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_VictoriaSinclair, Dialog))),
@@ -697,60 +569,32 @@ victoriaSinclair(Parent) :-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, victoriaSinclair, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
 acao_sobre_victoriaSinclair(Parent) :-
     free(Parent),
-    new(Dialog, dialog('acao_sobre_victoriaSinclair')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/female1.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+    ScreenText = 'acao_sobre_victoriaSinclair',
+    ImagePath = 'images/female1.jpg',
 
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-     % Configuração dos componentes de texto
+   % Configuração dos componentes de texto
     Title = ['Eu estou na ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. \n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro Benjamin.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
-
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, victoriaSinclair, Dialog))),
 
-
-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_victoriaSinclair, Dialog, bitmap('images/lista_suspeitos.jpg')))),
-
 
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
@@ -758,43 +602,19 @@ acao_sobre_victoriaSinclair(Parent) :-
 
 acao_paradeiro_victoriaSinclair(Parent) :-
     free(Parent),
-    new(Dialog, dialog('acao_paradeiro_victoriaSinclair')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/female1.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+    ScreenText = 'acao_paradeiro_victoriaSinclair',
+    ImagePath = 'images/female1.jpg',
 
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-     % Configuração dos componentes de texto
+   % Configuração dos componentes de texto
     Title = ['Eu estava meditando em um antigo templo abandonado, localizado na parte sul da ilha, longe da montanha onde ocorreu o roubo. Meu foco naquele momento era aprofundar meus conhecimentos sobre a energia espiritual dos Pokémon Fantasma, e eu estava sozinha no local. \n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
-
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
@@ -807,79 +627,12 @@ acao_paradeiro_victoriaSinclair(Parent) :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-ethanDonovan(Parent) :-
-    free(Parent),
-    new(Dialog, dialog('ethanDonovan')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/male2.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
-
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-     % Configuração dos componentes de texto
-    Title = ['Você está investigando Ethan Donovan. O que você quer perguntar? \n'],
-    Body = [
-    '1. Fale sobre você, por que você está aqui?',
-    '2. O que você fez desde que chegou na ilha?',
-    '3. Falar com mais suspeitos.'
-    ],
-
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
-
-    % Configuração dos botões
-    send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_EthanDonovan, Dialog))),
-    send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_EthanDonovan, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
-
-    % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, ethanDonovan, Dialog, bitmap('images/lista_suspeitos.jpg')))),
-
-
-    % Posicionamento dos componentes
-    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
-
 acao_paradeiro_EthanDonovan(Parent) :-
     free(Parent),
-    new(Dialog, dialog('acao_paradeiro_ethanDonovan')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/male.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+    ScreenText = 'acao_paradeiro_ethanDonovan',
+    ImagePath = 'images/male2.jpg',
 
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-     % Configuração dos componentes de texto
+    % Configuração dos componentes de texto
     Title = [
       'Eu estava em meu laboratório particular na cidade vizinha à ilha.
 Eu estava realizando experimentos e pesquisas relacionados à criação
@@ -890,17 +643,9 @@ e ao estudo de Pokémon, especificamente focados nas habilidades de transformaç
     '2. Fazer mais perguntas pro suspeito.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
@@ -909,48 +654,25 @@ e ao estudo de Pokémon, especificamente focados nas habilidades de transformaç
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_EthanDonovan, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_sobre_EthanDonovan(Parent) :-
     free(Parent),
-    new(Dialog, dialog('acao_sobre_ethanDonovan')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/male2.jpg'))), % Define a imagem de fundo
-    send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
+    ScreenText = 'acao_sobre_ethanDonovan',
+    ImagePath'images/male2.jpg',
 
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-     % Configuração dos componentes de texto
+    % Configuração dos componentes de texto
     Title = ['Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. \n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro Benjamin.'
     ],
- 
-    TitleType = bold,
-    BodyType = normal,
 
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
     % Configuração dos botões
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
     send(BGroup, append, button('Ethan Donovan', message(@prolog, ethanDonovan, Dialog))),
@@ -958,10 +680,36 @@ acao_sobre_EthanDonovan(Parent) :-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_EthanDonovan, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
+ethanDonovan(Parent) :-
+    free(Parent),
+    ScreenText = 'ethanDonovan',
+    ImagePath = 'images/male2.jpg',
+
+    % Configuração dos componentes de texto
+    Title = ['Você está investigando Ethan Donovan. O que você quer perguntar? \n'],
+    Body = [
+    '1. Fale sobre você, por que você está aqui?',
+    '2. O que você fez desde que chegou na ilha?',
+    '3. Falar com mais suspeitos.'
+    ],
+
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
+
+    % Configuração dos botões
+    send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_EthanDonovan, Dialog))),
+    send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_EthanDonovan, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, ethanDonovan, Dialog, bitmap('images/lista_suspeitos.jpg')))),
+
+    % Posicionamento dos componentes
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 % Função para iniciar o jogo
 iniciar_jogo :-
