@@ -183,6 +183,33 @@ fase(0) :-
 sair(Parent) :-
     free(Parent).
 
+init_fase(DialogText, ThisDialog, ThisCanvas, ThisBG, ThisBGroup, ThisGGroup, ThisTGroup, ThisSGroup) :-
+  new(Dialog, dialog(DialogText)),
+  send(Dialog, display, new(Canvas, picture)),
+  inicializa_canvas(Dialog, Canvas),
+  send(Canvas, display, new(BG, bitmap('images/lobby.jpg'))), % Define a imagem de fundo
+
+  % Configuração dos grupos de componentes
+  send(Dialog, display, new(GGroup, dialog_group(""))),
+  send(GGroup, display, new(TGroup, dialog_group(texts, group))),
+  send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
+  send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
+  send(GGroup, layout_dialog),
+  send(GGroup, size, size(1920, 500)),
+  send(GGroup, alignment, center),
+  send(TGroup, alignment, center),
+  send(BGroup, alignment, center),
+  send(SGroup, alignment, center),
+  ThisBG = BG,
+  ThisBGroup = BGroup,
+  ThisDialog = Dialog,
+  ThisParent = Parent,
+  ThisGGroup = GGroup,
+  ThisSGroup = SGroup,
+  ThisTGroup = TGroup,
+  ThisCanvas = Canvas.
+
+
 fase(1, Parent) :-
     free(Parent), % Destrói a janela anterior
     new(Dialog, dialog('Lobby')),
@@ -242,29 +269,13 @@ fase(1, Parent) :-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 1, Dialog, bitmap('images/lobby.jpg')))),
 
-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 fase(2, Parent) :-
     free(Parent), % Destrói a janela anterior
-    cenario(praia),
-    new(Dialog, dialog('Fase 2')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/praia.jpg'))), % Define a imagem de fundo
-
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1920, 500)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
+    ScreenText = 'Praia',
+    init_fase(ScreenText, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup),
 
     % Configuração dos componentes de texto
     Title = ['Você está na praia.'],
@@ -295,29 +306,11 @@ fase(2, Parent) :-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/praia.jpg')))),
 
-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-
 acao_procurar_pegadas(Parent) :-
-    free(Parent), % Destrói a janela anterior
-    new(Dialog, dialog('Procurar pegadas')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/rastro.jpg'))), % Define a imagem de fundo
-
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1920, 500)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
+    ScreenText = 'Procurar Pegadas',
 
     % Configuração dos componentes de texto
     Title = ['Você está investigando os arredores da praia e encontra pegadas de algum animal ou pokémon que se arrasta.'],
@@ -327,6 +320,8 @@ acao_procurar_pegadas(Parent) :-
     '2. Falar com suspeito.',
     '3. Voltar.'
     ],
+
+    init_fase(ScreenText, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup),
 
     TitleType = bold,
     BodyType = normal,
@@ -343,7 +338,7 @@ acao_procurar_pegadas(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
     send(BGroup, append, button("Falar com o suspeito", message(@prolog, fase, 3, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
+    send(BGroup, append, button(roltar, message(@prolog, fase, 2, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_procurar_pegadas, Dialog, bitmap('images/pikachu.gif')))),
@@ -354,23 +349,9 @@ acao_procurar_pegadas(Parent) :-
 
 acao_investigar_arredores(Parent) :-
     free(Parent), % Destrói a janela anterior
-    new(Dialog, dialog('Investigar arredores')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/mochila_partitura.jpg'))), % Define a imagem de fundo
 
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
+    ScreentText = 'Investigar Arredores',
+    init_fase(ScreenText, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup),
     % Configuração dos componentes de texto
     Title = ['Você está investigando os arredores da praia. Você encontra uma mochila abandonada e uma partitura musical'],
     Body = [
@@ -578,7 +559,7 @@ fase(3, Parent) :-
     send(BGroup, append, button("Jacob Gallagher", message(@prolog, jacobGallagher, Dialog))),
     send(BGroup, append, button("Sophia Chen", message(@prolog, sophiaChen, Dialog))),
     send(BGroup, append, button("Gabriel Ramirez", message(@prolog, gabrielRamirez, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog, ))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 3, Dialog, bitmap('images/pikachu.gif')))),
