@@ -267,7 +267,7 @@ fase(1, Parent) :-
     send(BGroup, append, button("Procurar no hotel", message(@prolog, fase, 4, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 1, Dialog, bitmap('images/lobby.jpg')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 1, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
@@ -304,7 +304,7 @@ fase(2, Parent) :-
     send(BGroup, append, button("Conversar com os hóspodes", message(@prolog, fase, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/praia.jpg')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
@@ -341,7 +341,7 @@ acao_procurar_pegadas(Parent) :-
     send(BGroup, append, button(roltar, message(@prolog, fase, 2, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_procurar_pegadas, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_procurar_pegadas, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -380,7 +380,7 @@ acao_investigar_arredores(Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_arredores, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_arredores, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -437,7 +437,7 @@ acao_investigar_mochila(Parent) :-
     send(BGroup, append, button("Ir para Floresta", message(@prolog, fase, 4, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_mochila, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_mochila, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -493,7 +493,7 @@ acao_investigar_partitura(Parent) :-
     send(BGroup, append, button("Ir para Floresta", message(@prolog, fase, 4, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_partitura, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_partitura, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -562,7 +562,7 @@ fase(3, Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog, ))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 3, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 3, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -616,7 +616,7 @@ benjaminBlackwood(Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, benjaminBlackwood, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, benjaminBlackwood, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -669,7 +669,7 @@ acao_sobre_benjamin(Parent) :-
 
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_benjamin, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_benjamin, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -720,7 +720,7 @@ acao_paradeiro_benjamin(Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_benjamin, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_benjamin, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -774,7 +774,7 @@ victoriaSinclair(Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, victoriaSinclair, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, victoriaSinclair, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -828,7 +828,7 @@ acao_sobre_victoriaSinclair(Parent) :-
 
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_victoriaSinclair, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_victoriaSinclair, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -880,7 +880,7 @@ acao_paradeiro_victoriaSinclair(Parent) :-
     send(BGroup, append, button('Mais perguntas', message(@prolog, victoriaSinclair, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_victoriaSinclair, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_victoriaSinclair, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -932,7 +932,7 @@ ethanDonovan(Parent) :-
     send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, ethanDonovan, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, ethanDonovan, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -986,7 +986,7 @@ e ao estudo de Pokémon, especificamente focados nas habilidades de transformaç
     send(BGroup, append, button('Ethan Donovan', message(@prolog, ethanDonovan, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_EthanDonovan, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_EthanDonovan, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
@@ -1035,7 +1035,7 @@ acao_sobre_EthanDonovan(Parent) :-
     send(BGroup, append, button('Ethan Donovan', message(@prolog, ethanDonovan, Dialog))),
 
     % Configuração do botão de lista de suspeitos
-    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_EthanDonovan, Dialog, bitmap('images/pikachu.gif')))),
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_EthanDonovan, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
 
     % Posicionamento dos componentes
