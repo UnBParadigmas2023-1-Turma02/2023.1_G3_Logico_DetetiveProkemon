@@ -279,17 +279,9 @@ fase(2, Parent) :-
     '3. Conversar com outros hóspedes.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
@@ -303,7 +295,9 @@ fase(2, Parent) :-
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_procurar_pegadas(Parent) :-
+    free(Parent),
     ScreenText = 'Procurar Pegadas',
+    ImagePath = './images/rastro.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está investigando os arredores da praia e encontra pegadas de algum animal ou pokémon que se arrasta.'],
@@ -314,19 +308,9 @@ acao_procurar_pegadas(Parent) :-
     '3. Voltar.'
     ],
 
-    init_fase(ScreenText, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup),
-
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
@@ -336,15 +320,14 @@ acao_procurar_pegadas(Parent) :-
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_procurar_pegadas, Dialog, bitmap('images/lista_suspeitos.jpg')))),
 
-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 acao_investigar_arredores(Parent) :-
     free(Parent), % Destrói a janela anterior
 
-    ScreentText = 'Investigar Arredores',
-    init_fase(ScreenText, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup),
+    ScreenText = 'Investigar Arredores',
+    ImagePath = './images/mochila_partitura.jpg',
     % Configuração dos componentes de texto
     Title = ['Você está investigando os arredores da praia. Você encontra uma mochila abandonada e uma partitura musical'],
     Body = [
@@ -354,18 +337,9 @@ acao_investigar_arredores(Parent) :-
     '3. Voltar.'
     ],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
-
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar mochila", message(@prolog, acao_investigar_mochila, Dialog))),
@@ -381,38 +355,15 @@ acao_investigar_arredores(Parent) :-
 
 acao_investigar_mochila(Parent) :-
     free(Parent), % Destrói a janela anterior
-    new(Dialog, dialog('Investigar mochila')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/lista_mapa_recibo.jpg'))), % Define a imagem de fundo
+    ScreenText = 'Investigar mochila',
+    ImagePath = 'images/lista_mapa_recibo.jpg',
 
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 300)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
-
-    % Configuração dos componentes de texto
     Title = ['Você investiga a mochila.'],
     Body = ['Você encontra uma tabela de valores de pokémon, mapa do local, recibo de transações suspeitas'],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Atualiza a lista de pistas encontradas
     assert(encontrou_pista(tabela_valores_pokemon)),
@@ -438,39 +389,16 @@ acao_investigar_mochila(Parent) :-
 
 acao_investigar_partitura(Parent) :-
     free(Parent), % Destrói a janela anterior
-    new(Dialog, dialog('Investigar partitura')),
-    send(Dialog, display, new(Canvas, picture)),
-    inicializa_canvas(Dialog, Canvas),
-    send(Canvas, display, new(BG, bitmap('images/partitura_investigada.jpg'))), % Define a imagem de fundo
-
-    % Configuração dos grupos de componentes
-    send(Dialog, display, new(GGroup, dialog_group(""))),
-    send(GGroup, display, new(TGroup, dialog_group(texts, group))),
-    send(GGroup, display, new(BGroup, dialog_group(buttons, group))),
-    send(GGroup, display, new(SGroup, dialog_group(buttons, group))),
-    send(GGroup, layout_dialog),
-    send(GGroup, size, size(1900, 500)),
-    send(GGroup, alignment, center),
-    send(TGroup, alignment, center),
-    send(BGroup, alignment, center),
-    send(SGroup, alignment, center),
+    ScreenText = 'Investigar partitura',
+    ImagePath = 'images/partitura_investigada.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você investiga a partitura.'],
     Body = ['Você encontra uma partitura musical com anotações sobre o canto encantador de Primarina.'],
 
-    TitleType = bold,
-    BodyType = normal,
-
-    get(type(font), check, TitleType, TitleFont),
-    get(type(font), check, BodyType, BodyFont),
-
-    same_type(Title, TitleType, Title_w_Type),
-    create_text_font(Title_w_Type, TGroup),
-  
-    same_type(Body, BodyType, Body_w_Type),
-    create_text_font(Body_w_Type, TGroup),
-
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
 
     % Atualiza a lista de pistas encontradas
     assert(encontrou_pista(partitura_musical)),
