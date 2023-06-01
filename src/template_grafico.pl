@@ -183,11 +183,12 @@ fase(0) :-
 sair(Parent) :-
     free(Parent).
 
-init_fase(DialogText, ThisDialog, ThisCanvas, ThisBG, ThisBGroup, ThisGGroup, ThisTGroup, ThisSGroup) :-
+init_fase(DialogText, ImagePath, Title, Body, ThisDialog, ThisCanvas, ThisBG, ThisBGroup, ThisGGroup, ThisTGroup, ThisSGroup) :-
   new(Dialog, dialog(DialogText)),
   send(Dialog, display, new(Canvas, picture)),
   inicializa_canvas(Dialog, Canvas),
-  send(Canvas, display, new(BG, bitmap('images/lobby.jpg'))), % Define a imagem de fundo
+  send(Canvas, display, new(BG, bitmap(ImagePath))), % Define a imagem de fundo
+  send(BG, size, Canvas?size), % Ajusta o tamanho da imagem para preencher o canvas
 
   % Configuração dos grupos de componentes
   send(Dialog, display, new(GGroup, dialog_group(""))),
@@ -200,6 +201,19 @@ init_fase(DialogText, ThisDialog, ThisCanvas, ThisBG, ThisBGroup, ThisGGroup, Th
   send(TGroup, alignment, center),
   send(BGroup, alignment, center),
   send(SGroup, alignment, center),
+
+  TitleType = bold,
+  BodyType = normal,
+
+  get(type(font), check, TitleType, TitleFont),
+  get(type(font), check, BodyType, BodyFont),
+
+  same_type(Title, TitleType, Title_w_Type),
+  create_text_font(Title_w_Type, TGroup),
+
+  same_type(Body, BodyType, Body_w_Type),
+  create_text_font(Body_w_Type, TGroup),
+
   ThisBG = BG,
   ThisBGroup = BGroup,
   ThisDialog = Dialog,
