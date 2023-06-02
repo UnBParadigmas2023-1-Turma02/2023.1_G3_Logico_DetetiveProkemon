@@ -1,3 +1,7 @@
+:- module(fase9, [fase/2]).
+:- use_module('fase10').
+:- use_module('fase11').
+
 fase(9, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Topo da Montanha',

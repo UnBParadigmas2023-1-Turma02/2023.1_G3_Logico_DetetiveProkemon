@@ -1,3 +1,7 @@
+:- module(fase6, [fase/2]).
+:- use_module('fase7').
+:- use_module('fase8').
+
 fase(6, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Base da montanha', % nome da tela
@@ -8,7 +12,7 @@ fase(6, Parent) :-
     Body = [
     'O que você faz? \n',
     '1. Segue para a direita.',
-    '2. Segue para a esquerda.',
+    '2. Segue para a esquerda.'
     ],
 
     init_fase(
