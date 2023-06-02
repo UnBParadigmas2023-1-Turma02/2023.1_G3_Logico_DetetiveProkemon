@@ -11,3 +11,8 @@ cenario(montanha).
 cenario(base_montanha).
 cenario(caminho_esquerda).
 cenario(caminho_direita).
+cenario(topo_montanha).
+cenario(caverna_escura).
+cenario(tunel_pedra).
+cenario(quarto_ethan).
+cenario(caverna_ditto).

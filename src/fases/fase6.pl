@@ -36,7 +36,7 @@ acao_investigar_arredores_base_montanha :-
     (
         Opcao = 1 -> acao_investigar_corda;
         Opcao = 2 -> acao_investigar_faca;
-        Opcao = 3 -> fase5(5);
+        Opcao = 3 -> fase6(6);
         true -> write('Opção inválida.')
     ).
 
@@ -59,13 +59,13 @@ acao_investigar_corda :-
     ).
 
 escolher_caminho :-
-    write('Existem dois caminhos para subir a montanha, qual seguir?'),
+    write('Existem dois caminhos para subir a montanha, qual seguir?'), nl,
     write('1. Esquerda'), nl,
     write('2. Direita'), nl,
     read(Opcao),
     (
-        Opcao = 1 -> fase6(6);
-        Opcao = 2 -> fase7(7);
+        Opcao = 1 -> fase7(7);
+        Opcao = 2 -> fase8(8);
         true -> write('Opção inválida.')
     ).
 
