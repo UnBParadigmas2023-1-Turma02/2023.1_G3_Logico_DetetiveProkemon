@@ -73,11 +73,29 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 | Vitor Eduardo Kühl Rodrigues | Backend, contexto do jogo, roterista da história | Excelente |
 
 ## Outros 
-Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
-(i) Lições Aprendidas;
-(ii) Percepções;
-(iii) Contribuições e Fragilidades, e
-(iV) Trabalhos Futuros.
+(i) Lições Aprendidas:
+Exploração de um paradigma de programação diferente e desafiador.
+Aprendizado da lógica declarativa e expressão de regras complexas.
+Pensamento abstrato e estabelecimento de relações lógicas entre os elementos.
+Desenvolvimento de habilidades de colaboração e trabalho em equipe.
+Necessidade de melhorar práticas de programação, como modularização e documentação.
+
+(ii) Percepções:
+Interesse despertado pelo paradigma lógico e possibilidades oferecidas pelo Prolog.
+Dificuldade em aplicar a linguagem em contextos como aplicações web e interfaces de usuário.
+Reconhecimento das limitações e peculiaridades do Prolog.
+Percepção de que o contexto de aplicação da linguagem é mais restrito.
+
+(iii) Contribuições e Fragilidades:
+Colaboração entre os membros do grupo facilitou o compartilhamento de conhecimento.
+Fortalecimento da capacidade de resolução de problemas em contextos lógicos.
+Fragilidades identificadas na documentação da linguagem e na identificação de erros.
+
+(iv) Trabalhos Futuros:
+Exploração de aspectos específicos da linguagem Prolog.
+Melhoria das práticas de programação, como modularização e documentação.
+Investigação de aplicações mais avançadas do paradigma lógico e do Prolog.
+Busca por recursos e comunidades mais robustas para suporte e aprendizado contínuo da linguagem.
 
 ## Fontes
 Swi Prolog Documentation <<https://www.swi-prolog.org>>.
