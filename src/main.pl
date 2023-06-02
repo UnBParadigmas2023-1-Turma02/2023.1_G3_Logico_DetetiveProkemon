@@ -170,7 +170,7 @@ write('Você está investigando os arredores da praia. O que você encontra?'), 
     (
         Opcao = 1 -> acao_investigar_arredores;
         Opcao = 2 -> fase(3);
-        Opcao = 2 -> fase(1)
+        Opcao = 3 -> fase(1)
     ).
 
 
@@ -272,7 +272,7 @@ benjaminBlackwood:-
     (
         Opcao = 1 -> acao_sobre_benjamin;
         Opcao = 2 -> acao_paradeiro_benjamin;
-        Opcao = 2 -> fase(3)
+        Opcao = 3 -> fase(3)
     ).
     acao_sobre_benjamin:-
       write('Resposta: Vim conhecer a ilha e pesquisar espécies de pokémons. Meu pokémon é o Persian.'), nl,
@@ -304,7 +304,7 @@ benjaminBlackwood:-
     (
         Opcao = 1 -> acao_sobre_VictoriaSinclair;
         Opcao = 2 -> acao_paradeiro_VictoriaSinclair;
-        Opcao = 2 -> fase(3)
+        Opcao = 3 -> fase(3)
     ).
     acao_sobre_VictoriaSinclair:-
       write('Vim  a ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. Meu pokémon é o Mismagius'), nl,
@@ -336,7 +336,7 @@ benjaminBlackwood:-
     (
         Opcao = 1 -> acao_sobre_EthanDonovan;
         Opcao = 2 -> acao_paradeiro_EthanDonovan;
-        Opcao = 2 -> fase(3)
+        Opcao = 3 -> fase(3)
     ).
     acao_sobre_EthanDonovan:-
       write('Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes.  Meu pokémon é o Ditto'), nl,
@@ -367,7 +367,7 @@ oliviaMorgan:-
     (
         Opcao = 1 -> acao_sobre_OliviaMorgan;
         Opcao = 2 -> acao_paradeiro_OliviaMorgan;
-        Opcao = 2 -> fase(3)
+        Opcao = 3 -> fase(3)
     ).
     acao_sobre_OliviaMorgan:-
       write('Resposta: Vim  a ilha com o objetivo de ver o mar, já que estava de férias. Meu pokémon é o Dragonite'), nl,
@@ -400,7 +400,7 @@ sebastianRusso:-
     (
         Opcao = 1 -> acao_sobre_SebastianRusso;
         Opcao = 2 -> acao_paradeiro_SebastianRusso;
-        Opcao = 2 -> fase(3)
+        Opcao = 3 -> fase(3)
     ).
     acao_sobre_SebastianRusso:-
       write('Resposta: Vim para ilha com o objetivo de pesquisar sobre a evolução de Pokémon de planta. Meu Pokémon é o Serperior'), nl,
@@ -433,7 +433,7 @@ isabellaSantiago:-
     (
         Opcao = 1 -> acao_sobre_isabellaSantiago;
         Opcao = 2 -> acao_paradeiro_isabellaSantiago;
-        Opcao = 2 -> fase(3)
+        Opcao = 3 -> fase(3)
     ).
     acao_sobre_isabellaSantiago:-
       write('Resposta: Vim conhecer a ilha para encontrar uma cura para minha mãe, ouvir falar que existe uma espécie de Pokémon de cura, vim saber mais a respeito. Meu pokémon é o Gengar.'), nl,
@@ -467,7 +467,7 @@ jacobGallagher :-
     (
         Opcao = 1 -> acao_sobre_JacobGallagher;
         Opcao = 2 -> acao_paradeiro_JacobGallagher;
-        Opcao = 2 -> fase(3)
+        Opcao = 3 -> fase(3)
     ).
     acao_sobre_JacobGallagher:-
       write('Resposta: Vim  a ilha com o objetivo de treinar meu pokémon, acredito que a ilha tenha uma força energética e pude encontrar meu lugar nesta ilha. Sou de uma linhagem de antigos treinadores de Luguia . Meu pokémon é o Primarina.'), nl,
@@ -497,7 +497,7 @@ sophiaChen :-
     (
         Opcao = 1 -> acao_sobre_SophiaChen;
         Opcao = 2 -> acao_paradeiro_SophiaChen;
-        Opcao = 2 -> fase(3)
+        Opcao = 3 -> fase(3)
     ).
     acao_sobre_SophiaChen:-
       write('Resposta: Sou apaixonada por criaturas lendárias e itens raros. Meu pokémon é o Weavile, ele me ajuda em minhas jornadas e aventuras, sempre prontos para enfrentar qualquer obstáculo que surja pelo caminho."'), nl,
@@ -528,7 +528,7 @@ gabrielRamirez :-
     (
         Opcao = 1 -> acao_sobre_gabrielRamirez;
         Opcao = 2 -> acao_paradeiro_gabrielRamirez;
-        Opcao = 2 -> fase(3)
+        Opcao = 3 -> fase(3)
     ).
     acao_sobre_gabrielRamirez:-
       write('Resposta: Vim para ilha poque meu pai adorava viajar pra cá quria está mais perto dele. Meu pokémon é o Greninja, ele veio me acompanhar nessa viajem e me proteger"'), nl,
