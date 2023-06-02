@@ -18,21 +18,29 @@ Prepare-se para uma experiência envolvente, onde estratégia, trabalho em equip
 
 ![ash_detetive](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/2ba94fc2-effb-4ba5-a5eb-4982feebfe6e)
 
-# O lendários Lugia e Celebi
+## Os lendários
 
 ![lugia_celebi](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/34422fd8-a37d-4e8c-af94-9d4ae3ff4471)
 
-## Lugia
+### Lugia
 Lugia é famosa pela sua aparência majestosa e imponente. É uma grande ave marinha semelhante a um dragão, com cor predominantemente prata-azulada. Possui olhos grandes e vermelhos, uma crista de espinhos azuis ao longo da parte de trás de sua cabeça e um peito branco que se estende até o início de suas asas. As asas de Lugia são semelhantes a mãos e têm "dedos" que podem dobrar-se para trás durante o voo, dando-lhe uma aparência singular.
 
 Quanto às habilidades, Lugia é conhecida por ser um Pokémon incrivelmente poderoso, com grandes habilidades de defesa e poderosos ataques. Diz-se que a batida de suas asas pode criar tempestades que duram até 40 dias.
 
 ![lugia](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/fc06b7d5-a62b-476b-af1b-c00691626650)
 
-## Celebi
+### Celebi
 Celebi é um Pokémon lendário do tipo Psíquico/Planta. É conhecido como "A Voz da Floresta" e também possui a habilidade de viajar no tempo. A aparência de Celebi é pequena e delicada, com um corpo predominantemente verde, grandes olhos azuis e duas antenas que se assemelham a fitas transparentes saindo da parte de trás da cabeça. Possui também asas semelhantes a folhas em suas costas, que ampliam a conexão com seu tipo planta.
 
 ![celebi](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/97224026-400e-45a4-9da5-5fec63a7c83f)
+
+## Contexto
+
+O jogo se passa em uma ilha de férias, com belos resorts e praias de água cristalina. Além disso, a ilha possui uma floresta e uma gigantesca montanha para os amantes da natureza e de alguns esportes mais radicais.
+
+![game_map](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/7673bb1d-efb4-4039-bfa1-598fb936c41a)
+
+
 
 
 ## Estrutura do Projeto
