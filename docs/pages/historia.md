@@ -38,6 +38,12 @@ O jogo se passa em uma ilha de férias, com belos resorts e praias de água cris
 
 ![game_map](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/7673bb1d-efb4-4039-bfa1-598fb936c41a)
 
+## Fluxo de fases
+
+O jogo possui um fluxo de fases, em que o personagem pode executar ações na fase atual ou seguir para a próxima, sem poder voltar a anterior.
+
+![fluxograma_fases](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/71b81f77-455b-404a-9c6b-fddb1cc6a83e)
+
 ## Personagens
 
 O jogo possui diversos personagens que devem ser investigados durante sua jornada. Aqui estão eles e seu respectivo pokémon:
