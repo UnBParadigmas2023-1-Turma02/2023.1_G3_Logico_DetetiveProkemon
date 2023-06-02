@@ -84,7 +84,7 @@ acao_analisar_pista (Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button("Investigar pegadas", message(@prolog, acao_analisar_pista, Dialog))),
+    send(BGroup, append, button("Investigar pistas", message(@prolog, acao_analisar_pista, Dialog))),
     send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
