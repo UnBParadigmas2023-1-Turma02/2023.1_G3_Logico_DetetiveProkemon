@@ -62,32 +62,32 @@ O jogo possui diversos personagens que devem ser investigados durante sua jornad
 
 ### Benjamin Blackwood
 
-![banjamin](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/3bf53eab-ac2e-46ff-9b5d-84c3be684281)
+![banjamin](https://raw.githubusercontent.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/main/src/images/benjamin.jpg)
 
 ### Victoria Sinclair
 
-![Victoria](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/adc55120-1857-4ce5-a380-418527eb5342)
+![Victoria](https://raw.githubusercontent.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/main/src/images/victoria.jpg)
 
 ### Ethan Donovan
 
-![ethan](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/aa4c1e3d-6af3-456b-b334-baf09c3ef510)
+![ethan](https://raw.githubusercontent.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/main/src/images/ethan.jpg)
 
 ### Olivia Morgan
 
-![isabela](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/61431f20-4a03-47eb-8e6b-21cdb6542418)
+![Olivia](https://raw.githubusercontent.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/main/src/images/olivia.jpg)
 
 ### Sebastian Russo
 
-![sebastian2](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/b4706652-42f0-49b8-8604-84c97dec70ab)
+![sebastian](https://raw.githubusercontent.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/main/src/images/sebastian.jpg)
 
 ### Isabella Santiago
 
-![isabela 2](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/06500d8d-0374-416a-a3e3-ec1d778d5d99)
+![isabela](https://raw.githubusercontent.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/main/src/images/isabella.jpg)
 
 ### Sophia Chen
 
-![sofia](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/ed2845bd-8a7b-4967-bd52-eb3edcbde4de)
+![sofia](https://raw.githubusercontent.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/main/src/images/sophia.jpg)
 
 ### Gabriel Ramirez
 
-![Gabriel](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/befe0450-c318-437d-913a-feb48d2c3f54)
+![Gabriel](https://raw.githubusercontent.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/main/src/images/gabriel.jpg)
