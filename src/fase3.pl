@@ -581,7 +581,7 @@ acao_sobre_victoriaSinclair(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Vim a ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. Meu pokémon é o Mismagius \n'],
+    Title = ['Resposta: Vim a ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. Meu pokémon é o Mismagius \n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
@@ -608,7 +608,7 @@ acao_paradeiro_victoriaSinclair(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Eu estava meditando em um antigo templo abandonado, localizado na parte sul da ilha, longe da montanha onde ocorreu o roubo. Meu foco naquele momento era aprofundar meus conhecimentos sobre a energia espiritual dos Pokémon Fantasma, e eu estava sozinha no local.\n'],
+    Title = ['Resposta: Eu estava meditando em um antigo templo abandonado, localizado na parte sul da ilha, longe da montanha onde ocorreu o roubo. Meu foco naquele momento era aprofundar meus conhecimentos sobre a energia espiritual dos Pokémon Fantasma, e eu estava sozinha no local.\n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
@@ -666,7 +666,7 @@ acao_sobre_EthanDonovan(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. Meu pokémon é o Weavile. \n'],
+    Title = ['Resposta: Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. Meu pokémon é o Weavile. \n'],
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
     
@@ -692,7 +692,7 @@ acao_paradeiro_EthanDonovan(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Eu estava em meu laboratório particular na cidade vizinha à ilha. Eu estava realizando experimentos e pesquisas relacionados à criação e ao estudo de Pokémon, especificamente focados nas habilidades de transformação do Weavile. \n'],
+    Title = ['Resposta: Eu estava em meu laboratório particular na cidade vizinha à ilha. Eu estava realizando experimentos e pesquisas relacionados à criação e ao estudo de Pokémon, especificamente focados nas habilidades de transformação do Weavile. \n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
@@ -750,7 +750,7 @@ acao_sobre_OliviaMorgan(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Vim  a ilha com o objetivo de ver o mar, já que estava de férias. Meu pokémon é o Dragonite \n'],
+    Title = ['Resposta: Vim  a ilha com o objetivo de ver o mar, já que estava de férias. Meu pokémon é o Dragonite \n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
@@ -777,7 +777,7 @@ acao_paradeiro_OliviaMorgan(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Eu estava na praia banhando no mar quando o fato ocorreu, estava bem longe da montanha.\n'],
+    Title = ['Resposta: Eu estava na praia banhando no mar quando o fato ocorreu, estava bem longe da montanha.\n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
@@ -836,7 +836,7 @@ acao_sobre_SebastianRusso(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. Meu pokémon é o Ditto. \n'],
+    Title = ['Resposta: Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. Meu pokémon é o Ditto. \n'],
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
     
@@ -862,7 +862,7 @@ acao_paradeiro_SebastianRusso(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Eu estava em meu laboratório particular na cidade vizinha à ilha. Eu estava realizando experimentos e pesquisas relacionados à criação e ao estudo de Pokémon, especificamente focados nas habilidades de transformação do Ditto. \n'],
+    Title = ['Resposta: Eu estava em meu laboratório particular na cidade vizinha à ilha. Eu estava realizando experimentos e pesquisas relacionados à criação e ao estudo de Pokémon, especificamente focados nas habilidades de transformação do Ditto. \n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
@@ -920,10 +920,10 @@ acao_sobre_isabellaSantiago(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Vim conhecer a ilha para encontrar uma cura para minha mãe, ouvir falar que existe uma espécie de Pokémon de cura, vim saber mais a respeito. Meu pokémon é o Gengar. \n'],
+    Title = ['Resposta: Vim conhecer a ilha para encontrar uma cura para minha mãe, ouvir falar que existe uma espécie de Pokémon de cura, vim saber mais a respeito. Meu pokémon é o Gengar. \n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
-    '2. Fazer mais perguntas pro Benjamin.'
+    '2. Fazer mais perguntas pro suspeito.'
     ],
 
     init_fase(
@@ -947,7 +947,7 @@ acao_paradeiro_isabellaSantiago(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Eu estava na praia na maior parte do tempo. A praia me acalma \n'],
+    Title = ['Resposta: Eu estava na praia na maior parte do tempo. A praia me acalma \n'],
     Body = [
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
@@ -968,8 +968,173 @@ acao_paradeiro_isabellaSantiago(Parent) :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
+% Jacob Gallagher ---------------
+
+jacobGallagher(Parent) :-
+    free(Parent),
+    ScreenText = 'jacobGallagher',
+    ImagePath = 'images/female1.jpg',
+
+   % Configuração dos componentes de texto
+    Title = ['Você está investigando Jacob Gallagher. O que você quer perguntar? \n'],
+    Body = [
+    '1. Fale sobre você, por que você está aqui? qual o seu pokémon?',
+    '2. O que você fez desde que chegou na ilha?',
+    '3. Falar com mais suspeitos.'
+    ],
+
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
+
+    % Configuração dos botões
+    send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_JacobGallagher, Dialog))),
+    send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_JacobGallagher, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, jacobGallagher, Dialog, bitmap('images/lista_suspeitos.jpg')))),
+
+    % Posicionamento dos componentes
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
+acao_sobre_JacobGallagher(Parent) :-
+    free(Parent),
+    ScreenText = 'acao_sobre_JacobGallagher',
+    ImagePath = 'images/female1.jpg',
+
+   % Configuração dos componentes de texto
+    Title = ['Resposta: Vim  a ilha com o objetivo de treinar meu pokémon, acredito que a ilha tenha uma força energética e pude encontrar meu lugar nesta ilha. Sou de uma linhagem de antigos treinadores de Luguia . Meu pokémon é o Primarina.\n'],
+    Body = [
+    '1. Voltar para o menu de suspeitos.',
+    '2. Fazer mais perguntas pro suspeito.'
+    ],
+
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
+
+    % Configuração dos botões
+    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button('Mais perguntas', message(@prolog, jacobGallagher, Dialog))),
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_JacobGallagher, Dialog, bitmap('images/lista_suspeitos.jpg')))),
+
+    % Posicionamento dos componentes
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
+
+
+acao_paradeiro_JacobGallagher(Parent) :-
+    free(Parent),
+    ScreenText = 'acao_paradeiro_JacobGallagher',
+    ImagePath = 'images/female1.jpg',
+
+   % Configuração dos componentes de texto
+    Title = ['Resposta: Eu estava na montanha meditando, pois lá sentia uma energia diferente e agradável. \n'],
+    Body = [
+    '1. Voltar para o menu de suspeitos.',
+    '2. Fazer mais perguntas pro suspeito.'
+    ],
+
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
+
+    % Configuração dos botões
+    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button('Mais perguntas', message(@prolog, jacobGallagher, Dialog))),
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_JacobGallagher, Dialog, bitmap('images/lista_suspeitos.jpg')))),
+
+
+    % Posicionamento dos componentes
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
+
+sophiaChen(Parent) :-
+    free(Parent),
+    ScreenText = 'sophiaChen',
+    ImagePath = 'images/female1.jpg',
+
+   % Configuração dos componentes de texto
+    Title = ['Você está investigando Sophia Chen. O que você quer perguntar? \n'],
+    Body = [
+    '1. Fale sobre você, por que você está aqui? qual o seu pokémon?',
+    '2. O que você fez desde que chegou na ilha?',
+    '3. Falar com mais suspeitos.'
+    ],
+
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
+
+    % Configuração dos botões
+    send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_sophiaChen, Dialog))),
+    send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_sophiaChen, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, sophiaChen, Dialog, bitmap('images/lista_suspeitos.jpg')))),
+
+    % Posicionamento dos componentes
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
+
+
+acao_sobre_sophiaChen(Parent) :-
+    free(Parent),
+    ScreenText = 'acao_sobre_sophiaChen',
+    ImagePath = 'images/female1.jpg',
+
+   % Configuração dos componentes de texto
+    Title = ['Resposta: Sou apaixonada por criaturas lendárias e itens raros. Meu pokémon é o Ditto, ele me ajuda em minhas jornadas e aventuras, sempre prontos para enfrentar qualquer obstáculo que surja pelo caminho.\n'],
+    Body = [
+    '1. Voltar para o menu de suspeitos.',
+    '2. Fazer mais perguntas pro Suspeito.'
+    ],
+
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
+
+    % Configuração dos botões
+    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button('Mais perguntas', message(@prolog, sophiaChen, Dialog))),
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_sophiaChen, Dialog, bitmap('images/lista_suspeitos.jpg')))),
+
+    % Posicionamento dos componentes
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
+
+
+acao_paradeiro_sophiaChen(Parent) :-
+    free(Parent),
+    ScreenText = 'acao_paradeiro_sophiaChen',
+    ImagePath = 'images/female1.jpg',
+
+   % Configuração dos componentes de texto
+    Title = ['Resposta: Eu estava perto da montanha fazendo trilha e buscando pedras preciosas com meu Ditto. Ouvi dizer que naquele local existiam diversas pedras raras. \n'],
+    Body = [
+    '1. Voltar para o menu de suspeitos.',
+    '2. Fazer mais perguntas pro suspeito.'
+    ],
+
+    init_fase(
+      ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
+    ),
+
+    % Configuração dos botões
+    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button('Mais perguntas', message(@prolog, sophiaChen, Dialog))),
+
+    % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_sophiaChen, Dialog, bitmap('images/lista_suspeitos.jpg')))),
+
+
+    % Posicionamento dos componentes
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 % Função para iniciar o jogo
 iniciar_jogo :-
