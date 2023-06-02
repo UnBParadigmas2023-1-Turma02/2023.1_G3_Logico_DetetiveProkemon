@@ -1,12 +1,13 @@
 fase(7, Parent) :-
     free(Parent), % Destrói a janela anterior
-    ScreenText = 'Caminho direito da montanha', % nome da tela
+    ScreenText = 'Caminho esquerdo da montanha', % nome da tela
     ImagePath = './images/montanha.jpg', % img tela
 
     % Configuração dos componentes de texto
-    Title = ['Você está no caminho da direita na montanha.'],
+    Title = ['Você está na montanha.'],
     Body = [
-    'O que você deseja fazer? \n',
+    'Você está no caminho da esquerda na montanha. \n',
+    'O que você deseja fazer?',
     '1. Investigar pegadas.',
     '2. Analisar pista.',
     '3. Ir para o topo da montanha.',
