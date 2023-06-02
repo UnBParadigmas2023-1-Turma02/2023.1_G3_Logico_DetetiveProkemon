@@ -1,7 +1,7 @@
 # Detetive Prokemon
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T02 <br>
-**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: 03<br>
+**Nro do Grupo**: 03<br>
 **Paradigma**: Funcional<br>
 
 ## Alunos
@@ -32,14 +32,15 @@ Embarque nesta aventura ao lado de Ash, desvende os enigmas que cercam o roubo d
 Prepare-se para uma experiência envolvente, onde estratégia, trabalho em equipe e determinação serão testados. Torne-se o detetive Pokémon nessa empolgante jornada em busca da verdade e da preservação da harmonia entre humanos e Pokémons. O destino da ilha está em suas mãos. Aceite o desafio e mostre sua coragem e habilidades como treinador!
 
 ## Screenshots
-Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
+![Screenshot1](/docs/img/screenshot1.png)
+![Screenshot3](/docs//img/screenshot3.png)
+![Screenshot2](/docs//img/screenshot2.png)
+![Screenshot4](/docs//img/screenshot4.png)
+
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
-Gifs animados e outras ilustrações são bem-vindos!
+**Linguagens**: Prolog<br>
+**Tecnologias**: Swipl 9.0<br>
 
 ## Uso 
 Explique como usar seu projeto.
@@ -67,7 +68,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 | Eduardo Maia Rezende | Frontend, estrutura do jogo, organização do repositório e gitpages | Excelente |
 | Erick Melo Vidal de Oliveira | Frontend e organização do repositório | Excelente |
 | João Victor Max Bisinotti de Oliveira | Backend, contexto do jogo e gitpages | Excelente |
-| Klyssmann Henrique Ferreira de Oliveira | Frontend, estrutura do jogo e organização do repositório | Excelente |
+| Klyssmann Henrique Ferreira de Oliveira | Frontend, contexto, estrutura do jogo e organização do repositório | Excelente |
 | Mariana Oliveira Pires do Rio | Backend, contexto do jogo e gitpages | Excelente |
 | Vitor Eduardo Kühl Rodrigues | Backend, contexto do jogo, roterista da história | Excelente |
 
@@ -79,5 +80,4 @@ Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não es
 (iV) Trabalhos Futuros.
 
 ## Fontes
-Referencie, adequadamente, as referências utilizadas.
-Indique ainda sobre fontes de leitura complementares.
+Swi Prolog Documentation <<https://www.swi-prolog.org>>.
