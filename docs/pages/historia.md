@@ -32,8 +32,56 @@ Celebi é um Pokémon lendário do tipo Psíquico/Planta. É conhecido como "A V
 
 ![celebi](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/97224026-400e-45a4-9da5-5fec63a7c83f)
 
-## Contexto
+## Mapa
 
 O jogo se passa em uma ilha de férias, com belos resorts e praias de água cristalina. Além disso, a ilha possui uma floresta e uma gigantesca montanha para os amantes da natureza e de alguns esportes mais radicais.
 
 ![game_map](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/7673bb1d-efb4-4039-bfa1-598fb936c41a)
+
+## Personagens
+
+O jogo possui diversos personagens que devem ser investigados durante sua jornada. Aqui estão eles e seu respectivo pokémon:
+
+| Personagem | Pokémon |
+|--- |--- |
+| Benjamin Blackwood | Persian |
+| Victoria Sinclair | Mismagius |
+| Ethan Donovan | Weavile |
+| Olivia Morgan | Dragonite |
+| Sebastian Russo | Serperior |
+| Isabella Santiago | Gengar |
+| Jacob Gallagher | Primarina |
+| Sophia Chen | Ditto |
+| Gabriel Ramirez | Umbreon |
+
+### Benjamin Blackwood
+
+![banjamin](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/3bf53eab-ac2e-46ff-9b5d-84c3be684281)
+
+### Victoria Sinclair
+
+![Victoria](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/adc55120-1857-4ce5-a380-418527eb5342)
+
+### Ethan Donovan
+
+![ethan](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/aa4c1e3d-6af3-456b-b334-baf09c3ef510)
+
+### Olivia Morgan
+
+![isabela](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/61431f20-4a03-47eb-8e6b-21cdb6542418)
+
+### Sebastian Russo
+
+![sebastian2](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/b4706652-42f0-49b8-8604-84c97dec70ab)
+
+### Isabella Santiago
+
+![isabela 2](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/06500d8d-0374-416a-a3e3-ec1d778d5d99)
+
+### Sophia Chen
+
+![sofia](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/ed2845bd-8a7b-4967-bd52-eb3edcbde4de)
+
+### Gabriel Ramirez
+
+![Gabriel](https://github.com/UnBParadigmas2023-1-Turma02/2023.1_G3_Logico_DetetiveProkemon/assets/56610229/befe0450-c318-437d-913a-feb48d2c3f54)
