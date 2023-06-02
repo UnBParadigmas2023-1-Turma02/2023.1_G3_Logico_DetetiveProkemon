@@ -6,5 +6,6 @@
 
 - **Projeto**
     - [Sobre](./pages/projeto.md)
+    - [História](./pages/historia.md)
 
  
