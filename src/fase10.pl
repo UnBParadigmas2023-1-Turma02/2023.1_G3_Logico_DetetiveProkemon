@@ -5,7 +5,7 @@
 fase(10, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'caverna_escura',
-    ImagePath = './images/montanha.jpg',
+    ImagePath = './images/caverna.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está na caverna escura.'],
@@ -36,7 +36,7 @@ fase(10, Parent) :-
 acao_procurar_pistas(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Pistas',
-    ImagePath = './images/montanha.jpg',
+    ImagePath = './images/caverna.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Pistas'],
@@ -69,7 +69,7 @@ acao_procurar_pistas(Parent) :-
 acao_analisar_pegadas(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'caverna_escura',
-    ImagePath = './images/montanha.jpg',
+    ImagePath = './images/caverna.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Analisar pegadas'],

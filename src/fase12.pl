@@ -5,7 +5,7 @@
 fase(12, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Quarto do Ethan',
-    ImagePath = './images/generic.jpg',
+    ImagePath = './images/quarto.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você chegou ao quarto de Ethan, está bem organizado... Quem diria...''Você investiga Jessie e descobre evidências ligando-a ao crime.'],
@@ -36,7 +36,7 @@ fase(12, Parent) :-
 acao_procurar_pistas_ethan(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Procurar Pistas',
-    ImagePath = './images/generic.jpg',
+    ImagePath = './images/quarto.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Em cima da mesa você encontra uma passagem de barco utilizada que levava para outra ilha no mesmo dia do roubo...'],
@@ -67,7 +67,7 @@ acao_procurar_pistas_ethan(Parent) :-
 acao_examinar_quarto_ethan(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Procurar Pistas',
-    ImagePath = './images/generic.jpg',
+    ImagePath = './images/quarto.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você nota que o quarto está bem organizado, o que parece atípico para um membro da Equipe Rocket...'],

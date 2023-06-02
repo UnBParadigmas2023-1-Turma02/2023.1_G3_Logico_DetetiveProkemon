@@ -5,7 +5,7 @@
 fase(11, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Tunel',
-    ImagePath = './images/generic.jpg',
+    ImagePath = './images/caverna.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está no tunel.'],
@@ -36,7 +36,7 @@ fase(11, Parent) :-
 acao_procurar_pistas_pedra(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Pistas',
-    ImagePath = './images/generic.jpg',
+    ImagePath = './images/caverna.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Pistas'],
@@ -67,7 +67,7 @@ acao_procurar_pistas_pedra(Parent) :-
 acao_examinar_tunel(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Tunel',
-    ImagePath = './images/generic.jpg',
+    ImagePath = './images/caverna.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Tunel'],

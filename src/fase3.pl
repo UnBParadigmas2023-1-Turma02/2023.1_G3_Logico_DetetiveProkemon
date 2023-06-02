@@ -78,7 +78,7 @@ benjaminBlackwood(Parent) :-
 acao_sobre_benjamin(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_benjamin',
-    ImagePath = 'images/male1.jpg',
+    ImagePath = 'images/benjamin.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Resposta: Eu estou conhecendo a ilha e pesquisar espécies de pokémons. Meu pokémon é o Persian.\n'],
@@ -105,7 +105,7 @@ acao_sobre_benjamin(Parent) :-
 acao_paradeiro_benjamin(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_benjamin',
-    ImagePath = 'images/male1.jpg',
+    ImagePath = 'images/benjamin.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava na floresta, explorando. \n'],
@@ -160,7 +160,7 @@ victoriaSinclair(Parent) :-
 acao_sobre_victoriaSinclair(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_victoriaSinclair',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/victoria.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Vim a ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. Meu pokémon é o Mismagius \n'],
@@ -187,7 +187,7 @@ acao_sobre_victoriaSinclair(Parent) :-
 acao_paradeiro_victoriaSinclair(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_victoriaSinclair',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/victoria.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava meditando em um antigo templo abandonado, localizado na parte sul da ilha, longe da montanha onde ocorreu o roubo. Meu foco naquele momento era aprofundar meus conhecimentos sobre a energia espiritual dos Pokémon Fantasma, e eu estava sozinha no local.\n'],
@@ -216,7 +216,7 @@ acao_paradeiro_victoriaSinclair(Parent) :-
 ethanDonovan(Parent) :-
     free(Parent),
     ScreenText = 'ethanDonovan',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/victoria.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Você está investigando Ethan Donovan. O que você quer perguntar? \n'],
@@ -245,7 +245,7 @@ ethanDonovan(Parent) :-
 acao_sobre_EthanDonovan(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_ethanDonovan',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/ethan.jpg',
 
    % Configuração dos componentes de texto
     Title = [
@@ -273,7 +273,7 @@ acao_sobre_EthanDonovan(Parent) :-
 acao_paradeiro_EthanDonovan(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_ethanDonovan',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/ethan.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava em meu laboratório particular na cidade vizinha à ilha. Eu estava realizando experimentos e pesquisas relacionados à criação e ao estudo de Pokémon, especificamente focados nas habilidades de transformação do Weavile. \n'],
@@ -302,7 +302,7 @@ acao_paradeiro_EthanDonovan(Parent) :-
     oliviaMorgan(Parent) :-
     free(Parent),
     ScreenText = 'oliviaMorgan',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/olivia.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Você está investigando Olivia Morgan. O que você quer perguntar? \n'],
@@ -331,7 +331,7 @@ acao_paradeiro_EthanDonovan(Parent) :-
 acao_sobre_OliviaMorgan(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_OliviaMorgan',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/olivia.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Vim  a ilha com o objetivo de ver o mar, já que estava de férias. Meu pokémon é o Dragonite \n'],
@@ -358,7 +358,7 @@ acao_sobre_OliviaMorgan(Parent) :-
 acao_paradeiro_OliviaMorgan(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_OliviaMorgan',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/olivia.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava na praia banhando no mar quando o fato ocorreu, estava bem longe da montanha.\n'],
@@ -388,7 +388,7 @@ acao_paradeiro_OliviaMorgan(Parent) :-
     sebastianRusso(Parent) :-
     free(Parent),
     ScreenText = 'sebastianRusso',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/sebastian.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Você está investigando Sebastian Russo. O que você quer perguntar? \n'],
@@ -417,7 +417,7 @@ acao_paradeiro_OliviaMorgan(Parent) :-
 acao_sobre_SebastianRusso(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_SebastianRusso',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/sebastian.jpg',
 
    % Configuração dos componentes de texto
     Title = [
@@ -445,7 +445,7 @@ acao_sobre_SebastianRusso(Parent) :-
 acao_paradeiro_SebastianRusso(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_sebastianRusso',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/sebastian.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava em meu laboratório particular na cidade vizinha à ilha. Eu estava realizando experimentos e pesquisas relacionados à criação e ao estudo de Pokémon, especificamente focados nas habilidades de transformação do Ditto. \n'],
@@ -474,7 +474,7 @@ acao_paradeiro_SebastianRusso(Parent) :-
  isabellaSantiago(Parent) :-
     free(Parent),
     ScreenText = 'isabellaSantiago',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/isabella.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Você está investigando Isabella Santiago. O que você quer perguntar? \n'],
@@ -503,7 +503,7 @@ acao_paradeiro_SebastianRusso(Parent) :-
 acao_sobre_isabellaSantiago(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_isabellaSantiago',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/isabella.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Vim conhecer a ilha para encontrar uma cura para minha mãe, ouvir falar que existe uma espécie de Pokémon de cura, vim saber mais a respeito. Meu pokémon é o Gengar. \n'],
@@ -530,7 +530,7 @@ acao_sobre_isabellaSantiago(Parent) :-
 acao_paradeiro_isabellaSantiago(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_isabellaSantiago',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/isabella.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava na praia na maior parte do tempo. A praia me acalma \n'],
@@ -559,7 +559,7 @@ acao_paradeiro_isabellaSantiago(Parent) :-
 jacobGallagher(Parent) :-
     free(Parent),
     ScreenText = 'jacobGallagher',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/generic.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Você está investigando Jacob Gallagher. O que você quer perguntar? \n'],
@@ -588,7 +588,7 @@ jacobGallagher(Parent) :-
 acao_sobre_JacobGallagher(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_JacobGallagher',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/generic.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Vim  a ilha com o objetivo de treinar meu pokémon, acredito que a ilha tenha uma força energética e pude encontrar meu lugar nesta ilha. Sou de uma linhagem de antigos treinadores de Luguia . Meu pokémon é o Primarina.\n'],
@@ -615,7 +615,7 @@ acao_sobre_JacobGallagher(Parent) :-
 acao_paradeiro_JacobGallagher(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_JacobGallagher',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/generic.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava na montanha meditando, pois lá sentia uma energia diferente e agradável. \n'],
@@ -642,7 +642,7 @@ acao_paradeiro_JacobGallagher(Parent) :-
 sophiaChen(Parent) :-
     free(Parent),
     ScreenText = 'sophiaChen',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/sophia.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Você está investigando Sophia Chen. O que você quer perguntar? \n'],
@@ -671,7 +671,7 @@ sophiaChen(Parent) :-
 acao_sobre_sophiaChen(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_sophiaChen',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/sophia.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Sou apaixonada por criaturas lendárias e itens raros. Meu pokémon é o Ditto, ele me ajuda em minhas jornadas e aventuras, sempre prontos para enfrentar qualquer obstáculo que surja pelo caminho.\n'],
@@ -698,7 +698,7 @@ acao_sobre_sophiaChen(Parent) :-
 acao_paradeiro_sophiaChen(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_sophiaChen',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/sophia.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava perto da montanha fazendo trilha e buscando pedras preciosas com meu Ditto. Ouvi dizer que naquele local existiam diversas pedras raras. \n'],

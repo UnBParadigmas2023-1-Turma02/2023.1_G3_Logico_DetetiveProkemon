@@ -5,7 +5,7 @@
 fase(13, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Fase 12',
-    ImagePath = './images/generic.jpg',
+    ImagePath = './images/caverna.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você seguiu pelo túnel e chegou em uma caverna. Estranhamente, há sinais de algum pokémon que não anda possui pernas ou patas...'],

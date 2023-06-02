@@ -34,7 +34,7 @@ fase(5, Parent) :-
 acao_investigar_mata(Parent) :-
     free(Parent),
     ScreenText = 'acao_investigar_mata',
-    ImagePath = 'images/generic.jpg',
+    ImagePath = 'images/floresta.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está investigando a vegetação densa da floresta. O que você encontra? \n'],
@@ -59,7 +59,7 @@ acao_investigar_mata(Parent) :-
 acao_seguir_trilha(Parent) :-
     free(Parent),
     ScreenText = 'acao_seguir_trilha',
-    ImagePath = 'images/generic.jpg',
+    ImagePath = 'images/floresta.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você decide seguir uma trilha na floresta. Para onde ela leva? \n'],
@@ -89,7 +89,7 @@ acao_seguir_trilha(Parent) :-
 acao_investigar_acampamento(Parent) :-
     free(Parent),
     ScreenText = 'acao_investigar_acampamento',
-    ImagePath = 'images/generic.jpg',
+    ImagePath = 'images/acampamento.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está investigando o acampamento. O que você encontra? \n'],
@@ -117,7 +117,7 @@ acao_investigar_acampamento(Parent) :-
 acao_conversar_acampado(Parent) :-
     free(Parent),
     ScreenText = 'acao_conversar_acampado',
-    ImagePath = 'images/generic.jpg',
+    ImagePath = 'images/acampamento.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você decide conversar com a pessoa acampada. O que ela diz? \n'],
