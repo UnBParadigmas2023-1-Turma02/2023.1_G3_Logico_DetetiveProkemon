@@ -58,3 +58,13 @@ A produção de montagens autorais de imagens para serem utilizadas no jogo e cr
 A produção de montagens autorais de imagens permite criar uma ambientação exclusiva e personalizada para o jogo de investigação criminal Pokémon. Elas ajudam a estabelecer a atmosfera do jogo, transportando os jogadores para os cenários e as situações relevantes para a história. Essas montagens contribuem para a imersão dos jogadores, tornando a experiência mais envolvente e cativante.
 
 ![autoral2](../assets/autoral2.png)
+
+### Paradigma Funcional
+
+No jogo de investigação criminal Pokémon, o paradigma lógico é utilizado para modelar e representar as informações e regras do jogo de uma maneira lógica e declarativa. O paradigma lógico, em particular a linguagem Prolog, permite definir fatos, regras e consultas, e o sistema de inferência lógica é responsável por encontrar soluções com base nessas definições.
+
+No jogo, os fatos são utilizados para representar informações como suspeitos, cenas do crime, motivações e relacionamentos entre personagens. As regras são definidas para estabelecer conexões lógicas e inferências a partir dos fatos, permitindo que o jogo faça deduções e tome decisões com base nas informações disponíveis.
+
+O paradigma lógico é particularmente útil para jogos de investigação criminal, pois permite modelar relacionamentos complexos entre os elementos do jogo e realizar inferências lógicas para descobrir pistas, identificar suspeitos, relacionar evidências e progredir na investigação.
+
+Em resumo, o paradigma lógico no jogo de investigação criminal Pokémon é utilizado para definir a lógica do jogo, representar informações e relacionamentos, realizar inferências lógicas e ajudar os jogadores a solucionar o mistério com base nas evidências disponíveis.
