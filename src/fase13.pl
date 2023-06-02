@@ -1,5 +1,6 @@
 :- module(fase13, [fase13/2]).
 :- use_module('fase9').
+:- use_module('globalGoals').
 
 fase13(13, Parent) :-
     free(Parent), % Destrói a janela anterior

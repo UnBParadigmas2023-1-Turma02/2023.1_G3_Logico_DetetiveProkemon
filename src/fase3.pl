@@ -1,4 +1,8 @@
+:- module(fase, [fase/2]).
 
+:- use_module('globalGoals').
+:- use_module('fase5').
+:- use_module(library(pce)).
 
 fase(3, Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -17,8 +21,8 @@ fase(3, Parent) :-
     '7. Jacob Gallagher.',
     '8. Sophia Chen.',
     '9. Gabriel Ramirez.',
-    '10. Voltar.',
-    '11. Investigar Floresta'
+    '10. Investigar Floresta',
+    '11. Voltar.'
     ],
 
     init_fase(
@@ -35,8 +39,8 @@ fase(3, Parent) :-
     send(BGroup, append, button("Jacob Gallagher", message(@prolog, jacobGallagher, Dialog))),
     send(BGroup, append, button("Sophia Chen", message(@prolog, sophiaChen, Dialog))),
     send(BGroup, append, button("Gabriel Ramirez", message(@prolog, gabrielRamirez, Dialog))),
+    send(BGroup, append, button("Ir Para a Floresta", message(@prolog, fase, 5, Dialog))),
     send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
-    % send(BGroup, append, button(voltar, message(@prolog, fase, 4, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 3, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -711,7 +715,6 @@ acao_paradeiro_sophiaChen(Parent) :-
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_sophiaChen, Dialog, bitmap('images/lista_suspeitos.jpg')))),
-
 
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).

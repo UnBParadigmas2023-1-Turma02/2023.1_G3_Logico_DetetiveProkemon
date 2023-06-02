@@ -1,3 +1,7 @@
+:- module(fase5, [fase/2]).
+:- use_module('fase3').
+:- use_module('fase6').
+
 fase(5, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Fase 5',
@@ -17,7 +21,7 @@ fase(5, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("investigar mata", message(@prolog, acao_investigar_mata, Dialog))),
     send(BGroup, append, button("seguir trilha.", message(@prolog, acao_seguir_trilha, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 4, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 3, Dialog, bitmap('images/lista_suspeitos.jpg')))),
