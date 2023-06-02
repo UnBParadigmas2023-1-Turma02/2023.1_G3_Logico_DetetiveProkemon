@@ -151,7 +151,7 @@ acao_procurar_pegadas(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
     send(BGroup, append, button("Falar com o suspeito", message(@prolog, fase, 3, Dialog))),
-    send(BGroup, append, button(roltar, message(@prolog, fase, 2, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_procurar_pegadas, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -301,7 +301,7 @@ fase(3, Parent) :-
 benjaminBlackwood(Parent) :-
     free(Parent),
     ScreenText = 'benjaminBlackwood',
-    ImagePath = 'images/male1.jpg',
+    ImagePath = 'images/benjamin.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está investigando Benjamin Blackwood. O que você quer perguntar? \n'],
@@ -975,7 +975,7 @@ acao_paradeiro_sophiaChen(Parent) :-
 fase(5, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Fase 5',
-    ImagePath = './images/generic.jpg',
+    ImagePath = './images/floresta.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está na floresta. O que você faz?'],
