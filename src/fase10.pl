@@ -1,3 +1,8 @@
+:- module(fase10, [fase/2]).
+:- use_module('fase9').
+:- use_module('fase11').
+:- use_module('fase12').
+
 fase(10, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'caverna_escura',

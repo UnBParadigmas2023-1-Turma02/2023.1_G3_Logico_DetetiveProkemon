@@ -1,3 +1,6 @@
+:- module(fase11, [fase/2]).
+:- use_module('fase9').
+
 fase(11, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Tunel',

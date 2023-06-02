@@ -1,8 +1,8 @@
-:- module(fase13, [fase13/2]).
+:- module(fase13, [fase/2]).
 :- use_module('fase9').
 :- use_module('globalGoals').
 
-fase13(13, Parent) :-
+fase(13, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Fase 12',
     ImagePath = './images/generic.jpg',
@@ -23,7 +23,7 @@ fase13(13, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ditto, Dialog))),
     send(BGroup, append, button("Examinar Caverna", message(@prolog, acao_examinar_caverna_ditto, Dialog))),
-    send(BGroup, append, button("Examinar Caverna", message(@prolog, fase9, 9, Dialog))),
+    send(BGroup, append, button("Examinar Caverna", message(@prolog, fase, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -48,7 +48,7 @@ acao_procurar_pistas_ditto :-
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ditto, Dialog))),
     send(BGroup, append, button("Examinar ambiente", message(@prolog, acao_examinar_caverna_ditto, Dialog))),
-    send(BGroup, append, button("Voltar pelo túnel", message(@prolog, fase9, 9, Dialog))),
+    send(BGroup, append, button("Voltar pelo túnel", message(@prolog, fase, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -72,7 +72,7 @@ acao_examinar_caverna_ditto :-
 
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ditto, Dialog))),
-    send(BGroup, append, button("Voltar para o túnel", message(@prolog, fase9, 9, Dialog))),
+    send(BGroup, append, button("Voltar para o túnel", message(@prolog, fase, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),

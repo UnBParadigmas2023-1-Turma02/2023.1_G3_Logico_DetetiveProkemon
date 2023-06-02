@@ -25,7 +25,7 @@ fase12(12, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ethan, Dialog))),
     send(BGroup, append, button("Examinar Quarto", message(@prolog, acao_examinar_quarto_ethan, Dialog))),
-    send(BGroup, append, button("Prosseguir", message(@prolog, fase10, 10, Dialog), Dialog))),
+    send(BGroup, append, button("Prosseguir", message(@prolog, fase, 10, Dialog), Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -56,7 +56,7 @@ acao_procurar_pistas_ethan :-
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ethan, Dialog))),
     send(BGroup, append, button("Examinar Quarto", message(@prolog, acao_examinar_quarto_ethan, Dialog))),
-    send(BGroup, append, button("Prosseguir", message(@prolog, fase10, 10, Dialog))),
+    send(BGroup, append, button("Prosseguir", message(@prolog, fase, 10, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -86,7 +86,7 @@ acao_examinar_quarto_ethan :-
 
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ethan, Dialog))),
-    send(BGroup, append, button("Prosseguir", message(@prolog, fase8, 8, Dialog))),
+    send(BGroup, append, button("Prosseguir", message(@prolog, fase, 8, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
