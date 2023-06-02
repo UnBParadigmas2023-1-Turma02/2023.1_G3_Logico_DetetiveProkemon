@@ -466,7 +466,7 @@ fase(3, Parent) :-
 benjaminBlackwood(Parent) :-
     free(Parent),
     ScreenText = 'benjaminBlackwood',
-    ImagePath = 'images/male1.jpg',
+    ImagePath = 'images/benjamin.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está investigando Benjamin Blackwood. O que você quer perguntar? \n'],
@@ -494,7 +494,7 @@ benjaminBlackwood(Parent) :-
 acao_sobre_benjamin(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_benjamin',
-    ImagePath = 'images/male1.jpg',
+    ImagePath = 'images/benjamin.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Resposta: Eu estou conhecendo a ilha e pesquisar espécies de pokémons. \n'],
@@ -521,7 +521,7 @@ acao_sobre_benjamin(Parent) :-
 acao_paradeiro_benjamin(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_benjamin',
-    ImagePath = 'images/male1.jpg',
+    ImagePath = 'images/benjami.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Resposta: Eu estava na floresta, explorando. \n'],
@@ -547,7 +547,7 @@ acao_paradeiro_benjamin(Parent) :-
 victoriaSinclair(Parent) :-
     free(Parent),
     ScreenText = 'victoriaSinclair',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/victoria.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Você está investigando Benjamin Blackwood. O que você quer perguntar? \n'],
@@ -576,7 +576,7 @@ victoriaSinclair(Parent) :-
 acao_sobre_victoriaSinclair(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_victoriaSinclair',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/victoria.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Eu estou na ilha com o objetivo de estudar a história e os fenômenos paranormais associados a ela. Tenho uma grande paixão por assuntos místicos e ocultos o que me levou a buscar conhecimento sobre a ilha e seus segredos. Eu acredito que a ilha possui uma forte conexão com o mundo espiritual e está interessada em explorar esse aspecto único. \n'],
@@ -603,7 +603,7 @@ acao_sobre_victoriaSinclair(Parent) :-
 acao_paradeiro_victoriaSinclair(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_victoriaSinclair',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = 'images/victoria.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Eu estava meditando em um antigo templo abandonado, localizado na parte sul da ilha, longe da montanha onde ocorreu o roubo. Meu foco naquele momento era aprofundar meus conhecimentos sobre a energia espiritual dos Pokémon Fantasma, e eu estava sozinha no local. \n'],
@@ -630,7 +630,7 @@ acao_paradeiro_victoriaSinclair(Parent) :-
 acao_paradeiro_EthanDonovan(Parent) :-
     free(Parent),
     ScreenText = 'acao_paradeiro_ethanDonovan',
-    ImagePath = 'images/male2.jpg',
+    ImagePath = 'images/ethan.jpg',
 
     % Configuração dos componentes de texto
     Title = [
@@ -660,7 +660,7 @@ e ao estudo de Pokémon, especificamente focados nas habilidades de transformaç
 acao_sobre_EthanDonovan(Parent) :-
     free(Parent),
     ScreenText = 'acao_sobre_ethanDonovan',
-    ImagePath'images/male2.jpg',
+    ImagePath'images/ethan.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. \n'],
@@ -686,7 +686,7 @@ acao_sobre_EthanDonovan(Parent) :-
 ethanDonovan(Parent) :-
     free(Parent),
     ScreenText = 'ethanDonovan',
-    ImagePath = 'images/male2.jpg',
+    ImagePath = 'images/ethan.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está investigando Ethan Donovan. O que você quer perguntar? \n'],
