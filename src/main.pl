@@ -256,7 +256,7 @@ fase(3) :-
         Opcao = 7 -> jacobGallagher;
         Opcao = 8 -> sophiaChen;
         Opcao = 9 -> gabrielRamirez;
-        Opcao = 10 -> fase(3);
+        Opcao = 10 -> fase(2);
         Opcao = 11 -> fase(3)
     ).
 
@@ -296,7 +296,7 @@ benjaminBlackwood:-
       
      victoriaSinclair:-
     
-    write('Você está investigando Benjamin Blackwood. O que você quer perguntar?'), nl,
+    write('Você está investigando Vctoria. O que você quer perguntar?'), nl,
     write('1. Fale sobre você, por que você está aqui? e qual seu Pokémon? '), nl,
     write('2. O que você fez desde que chegou na ilha? .'), nl,
     write('3. Falar com mais suspeitos.'), nl,
@@ -328,7 +328,7 @@ benjaminBlackwood:-
 
      ethanDonovan:-
     
-    write('Você está investigando Benjamin Blackwood. O que você quer perguntar?'), nl,
+    write('Você está investigando Ethan. O que você quer perguntar?'), nl,
     write('1. Fale sobre você, por que você está aqui? e qual seu Pokémon? '), nl,
     write('2. O que você fez desde que chegou na ilha? .'), nl,
     write('3. Falar com mais suspeitos.'), nl,
@@ -392,7 +392,7 @@ oliviaMorgan:-
 
 sebastianRusso:-
     
-    write('Você está investigando Benjamin Blackwood. O que você quer perguntar?'), nl,
+    write('Você está investigando Sebastian. O que você quer perguntar?'), nl,
     write('1. Fale sobre você, por que você está aqui? e qual seu Pokémon? '), nl,
     write('2. O que você fez desde que chegou na ilha? .'), nl,
     write('3. Falar com mais suspeitos.'), nl,
@@ -405,7 +405,7 @@ sebastianRusso:-
     acao_sobre_SebastianRusso:-
       write('Resposta: Vim para ilha com o objetivo de pesquisar sobre a evolução de Pokémon de planta. Meu Pokémon é o Serperior'), nl,
       write('1. Voltar para o menu de suspeitos.'), nl,
-      write('2. Fazer mais perguntas pro Benjamin.'), nl,
+      write('2. Fazer mais perguntas pro suspeito.'), nl,
       read(Opcao),
     (
         Opcao = 1 -> fase(3);
@@ -425,7 +425,7 @@ sebastianRusso:-
 
 isabellaSantiago:-
     
-    write('Você está investigando Benjamin Blackwood. O que você quer perguntar?'), nl,
+    write('Você está investigando Isabella. O que você quer perguntar?'), nl,
     write('1. Fale sobre você, por que você está aqui e qual seu Pokémon? .'), nl,
     write('2. O que você fez desde que chegou na ilha? .'), nl,
     write('3. Falar com mais suspeitos.'), nl,
@@ -438,7 +438,7 @@ isabellaSantiago:-
     acao_sobre_isabellaSantiago:-
       write('Resposta: Vim conhecer a ilha para encontrar uma cura para minha mãe, ouvir falar que existe uma espécie de Pokémon de cura, vim saber mais a respeito. Meu pokémon é o Gengar.'), nl,
       write('1. Voltar para o menu de suspeitos.'), nl,
-      write('2. Fazer mais perguntas pro Benjamin.'), nl,
+      write('2. Fazer mais perguntas pro suspeito.'), nl,
       read(Opcao),
     (
         Opcao = 1 -> fase(3);
@@ -520,7 +520,7 @@ sophiaChen :-
 
 gabrielRamirez :-
     
-    write('Você está investigando Jacob Gallagher. O que você quer perguntar?'), nl,
+    write('Você está investigando Gabriel. O que você quer perguntar?'), nl,
     write('1. Fale sobre você, por que você está aqui? e qual seu Pokémon? '), nl,
     write('2. O que você fez desde que chegou na ilha? .'), nl,
     write('3. Falar com mais suspeitos.'), nl,
