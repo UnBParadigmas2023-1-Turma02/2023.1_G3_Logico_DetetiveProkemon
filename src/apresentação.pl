@@ -93,7 +93,6 @@ fase(1, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Investigar a praia", message(@prolog, fase, 2, Dialog))),
     send(BGroup, append, button("Falar com suspeitos", message(@prolog, fase, 3, Dialog))),
-    send(BGroup, append, button("Procurar no hotel", message(@prolog, fase, 4, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 1, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -214,7 +213,7 @@ acao_investigar_mochila(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
     send(BGroup, append, button("Falar com o suspeito", message(@prolog, fase, 3, Dialog))),
-    send(BGroup, append, button("Ir para Floresta", message(@prolog, fase, 4, Dialog))),
+    send(BGroup, append, button("Ir para Floresta", message(@prolog, fase, 5, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_investigar_mochila, Dialog, bitmap('images/lista_suspeitos.jpg')))),
