@@ -1,6 +1,6 @@
 :- module(fase6, [fase/2]).
-:- use_module('fase7').
-:- use_module('fase8').
+:- use_module('globalGoals').
+:- use_module('fase_middleware').
 
 fase(6, Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -20,5 +20,13 @@ fase(6, Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button("Segue para a direita", message(@prolog, fase, 7, Dialog))),
-    send(BGroup, append, button("Segue para a esquerda", message(@prolog, fase, 8, Dialog))),
+    send(BGroup, append, button("Segue para a direita", message(@prolog, fase_middleware, 7, Dialog))),
+    send(BGroup, append, button("Segue para a esquerda", message(@prolog, fase_middleware, 8, Dialog))),
+
+   % Configuração do botão de lista de suspeitos
+    send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_SebastianRusso, Dialog, bitmap('images/lista_suspeitos.jpg')))),
+
+    % Posicionamento dos componentes
+    componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
+
+

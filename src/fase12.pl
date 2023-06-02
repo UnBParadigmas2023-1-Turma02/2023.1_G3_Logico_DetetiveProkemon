@@ -1,8 +1,8 @@
-:- module(fase12, [fase12/2]).
-:- use_module('fase10').
-:- use_module('fase8').
+:- module(fase12, [fase/2]).
+:- use_module('fase_middleware').
+:- use_module('globalGoals').
 
-fase12(12, Parent) :-
+fase(12, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Quarto do Ethan',
     ImagePath = './images/generic.jpg',
@@ -25,7 +25,7 @@ fase12(12, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ethan, Dialog))),
     send(BGroup, append, button("Examinar Quarto", message(@prolog, acao_examinar_quarto_ethan, Dialog))),
-    send(BGroup, append, button("Prosseguir", message(@prolog, fase, 10, Dialog), Dialog))),
+    send(BGroup, append, button("Prosseguir", message(@prolog, fase_middleware, 10, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -33,7 +33,7 @@ fase12(12, Parent) :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-acao_procurar_pistas_ethan :-
+acao_procurar_pistas_ethan(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Procurar Pistas',
     ImagePath = './images/generic.jpg',
@@ -56,7 +56,7 @@ acao_procurar_pistas_ethan :-
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ethan, Dialog))),
     send(BGroup, append, button("Examinar Quarto", message(@prolog, acao_examinar_quarto_ethan, Dialog))),
-    send(BGroup, append, button("Prosseguir", message(@prolog, fase, 10, Dialog))),
+    send(BGroup, append, button("Prosseguir", message(@prolog, fase_middleware, 10, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -64,7 +64,7 @@ acao_procurar_pistas_ethan :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-acao_examinar_quarto_ethan :-
+acao_examinar_quarto_ethan(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Procurar Pistas',
     ImagePath = './images/generic.jpg',
@@ -86,7 +86,7 @@ acao_examinar_quarto_ethan :-
 
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ethan, Dialog))),
-    send(BGroup, append, button("Prosseguir", message(@prolog, fase, 8, Dialog))),
+    send(BGroup, append, button("Prosseguir", message(@prolog, fase_middleware, 8, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),

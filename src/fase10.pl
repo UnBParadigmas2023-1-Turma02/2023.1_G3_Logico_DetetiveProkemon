@@ -1,7 +1,6 @@
 :- module(fase10, [fase/2]).
-:- use_module('fase9').
-:- use_module('fase11').
-:- use_module('fase12').
+:- use_module('fase_middleware').
+:- use_module('globalGoals').
 
 fase(10, Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -34,7 +33,7 @@ fase(10, Parent) :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-acao_procurar_pistas (Parent) :-
+acao_procurar_pistas(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Pistas',
     ImagePath = './images/montanha.jpg',
@@ -58,7 +57,7 @@ acao_procurar_pistas (Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("Analisar pegadas", message(@prolog, acao_analisar_pegadas, Dialog))),
-    send(BGroup, append, button("Ir para o quarto do Ethan", message(@prolog, fase, 12, Dialog))),
+    send(BGroup, append, button("Ir para o quarto do Ethan", message(@prolog, fase_middleware, 12, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -67,7 +66,7 @@ acao_procurar_pistas (Parent) :-
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
-acao_analisar_pegadas (Parent) :-
+acao_analisar_pegadas(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'caverna_escura',
     ImagePath = './images/montanha.jpg',
@@ -90,7 +89,7 @@ acao_analisar_pegadas (Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("Continuar procurando pistas.", message(@prolog, acao_procurar_pistas, Dialog))),
-    send(BGroup, append, button("Voltar", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Voltar", message(@prolog, fase_middleware, 9, Dialog))),
 
    
 
@@ -98,7 +97,7 @@ acao_analisar_pegadas (Parent) :-
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
-acao_procurar_saida (Parent) :-
+acao_procurar_saida(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'caverna_escura',
     ImagePath = './images/montanha.jpg',
@@ -119,7 +118,7 @@ acao_procurar_saida (Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("Procurando pistas.", message(@prolog, acao_procurar_pistas, Dialog))),
-    send(BGroup, append, button("Ir para o tunel da pedra", message(@prolog, fase, 11, Dialog))),
+    send(BGroup, append, button("Ir para o tunel da pedra", message(@prolog, fase_middleware, 11, Dialog))),
     
 
    

@@ -1,6 +1,8 @@
 :- module(fase5, [fase/2]).
-:- use_module('fase3').
-:- use_module('fase6').
+:- use_module('fase_middleware').
+:- use_module('globalGoals').
+
+
 
 fase(5, Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -21,7 +23,7 @@ fase(5, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("investigar mata", message(@prolog, acao_investigar_mata, Dialog))),
     send(BGroup, append, button("seguir trilha.", message(@prolog, acao_seguir_trilha, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 3, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -45,7 +47,7 @@ acao_investigar_mata(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 5, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 5, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_benjamin, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -76,7 +78,7 @@ acao_seguir_trilha(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("investigar o local", message(@prolog, acao_investigar_acampamento, Dialog))),
     send(BGroup, append, button("conversar com pessoa acampada", message(@prolog, acao_conversar_acampado, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 5, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 5, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_benjamin, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -132,7 +134,7 @@ acao_conversar_acampado(Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("investigar mais o local", message(@prolog, acao_investigar_acampamento, Dialog))),
-    send(BGroup, append, button("seguir para a montanha", message(@prolog, fase, 6, Dialog))),
+    send(BGroup, append, button("seguir para a montanha", message(@prolog, fase_middleware, 6, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_benjamin, Dialog, bitmap('images/lista_suspeitos.jpg')))),

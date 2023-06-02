@@ -1,5 +1,5 @@
 :- module(fase13, [fase/2]).
-:- use_module('fase9').
+:- use_module('fase_middleware').
 :- use_module('globalGoals').
 
 fase(13, Parent) :-
@@ -23,7 +23,7 @@ fase(13, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ditto, Dialog))),
     send(BGroup, append, button("Examinar Caverna", message(@prolog, acao_examinar_caverna_ditto, Dialog))),
-    send(BGroup, append, button("Examinar Caverna", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Examinar Caverna", message(@prolog, fase_middleware, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -31,7 +31,8 @@ fase(13, Parent) :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-acao_procurar_pistas_ditto :-
+acao_procurar_pistas_ditto(Parent) :-
+    free(Parent),
     Title = ['Você encontrou uma Pokebola vazia com as iniciais "SC". Isso pode indicar que Sophia Chen esteve aqui.'],
     Body = [
     'O que você faz agora?',
@@ -48,7 +49,7 @@ acao_procurar_pistas_ditto :-
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ditto, Dialog))),
     send(BGroup, append, button("Examinar ambiente", message(@prolog, acao_examinar_caverna_ditto, Dialog))),
-    send(BGroup, append, button("Voltar pelo túnel", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Voltar pelo túnel", message(@prolog, fase_middleware, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -56,13 +57,14 @@ acao_procurar_pistas_ditto :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-acao_examinar_caverna_ditto :-
+acao_examinar_caverna_ditto(Parent) :-
+    free(Parent),
     Title = ['Você observa o ambiente. A caverna parece ser um esconderijo perfeito para um Ditto.'],
     Body = [
     'O que você faz agora?',
     '1. Procurar pistas.',
     '1. Continuar procurando pistas.',
-    '2. Voltar para o túnel de pedra.',
+    '2. Voltar para o túnel de pedra.'
     ],
 
     assert(encontrou_pista(pokebola_sc)),
@@ -72,7 +74,7 @@ acao_examinar_caverna_ditto :-
 
     % Configuração dos botões
     send(BGroup, append, button("Procurar Pistas", message(@prolog, acao_procurar_pistas_ditto, Dialog))),
-    send(BGroup, append, button("Voltar para o túnel", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Voltar para o túnel", message(@prolog, fase_middleware, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),

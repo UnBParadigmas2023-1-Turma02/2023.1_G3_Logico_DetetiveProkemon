@@ -1,5 +1,6 @@
 :- module(fase8, [fase/2]).
-:- use_module('fase9').
+:- use_module('fase_middleware').
+:- use_module('globalGoals').
 
 fase(8, Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -23,7 +24,7 @@ fase(8, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Investigar pegadas", message(@prolog, acao_investigar_pegadas, Dialog))),
     send(BGroup, append, button("Analisar pista", message(@prolog, acao_analisar_pista, Dialog))),
-    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase_middleware, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -32,7 +33,7 @@ fase(8, Parent) :-
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
 
-acao_investigar_pegadas (Parent) :-
+acao_investigar_pegadas(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Investigar Pegadas',
     ImagePath = './images/montanha.jpg',
@@ -56,7 +57,7 @@ acao_investigar_pegadas (Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar pegadas", message(@prolog, acao_analisar_pista, Dialog))),
-    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase_middleware, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -64,7 +65,7 @@ acao_investigar_pegadas (Parent) :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-acao_analisar_pista (Parent) :-
+acao_analisar_pista(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Analisar pista',
     ImagePath = './images/montanha.jpg',
@@ -88,7 +89,7 @@ acao_analisar_pista (Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar pistas", message(@prolog, acao_analisar_pista, Dialog))),
-    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase_middleware, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),

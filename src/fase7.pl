@@ -1,6 +1,7 @@
 :- module(fase7, [fase/2]).
-:- use_module('fase8').
-:- use_module('fase5').
+:- use_module('fase_middleware').
+:- use_module('globalGoals').
+
 
 fase(7, Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -25,8 +26,8 @@ fase(7, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Investigar pegadas", message(@prolog, acao_investigar_pegadas, Dialog))), % OK
     send(BGroup, append, button("Analisar pistas", message(@prolog, acao_procurar_pistas, Dialog))),
-    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase, 8, Dialog))),
-    send(BGroup, append, button("Voltar para o acampamento", message(@prolog, fase, 5, Dialog))),
+    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase_middleware, 8, Dialog))),
+    send(BGroup, append, button("Voltar para o acampamento", message(@prolog, fase_middleware, 5, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -42,9 +43,9 @@ fase(7, Parent) :-
     % Configuração dos componentes de texto
     Title = ['Voce encontra um chinelo afundado na terra.'],
     Body = [
-    'O caminho é úmido e o pé afunda...Essas pegadas estão bem claras'
-    'Parece ser de alguem que calça entre 35 e 38... A sola é vermelha'
-    'Você sabe quem é o dono do chinelo?'
+    'O caminho é úmido e o pé afunda...Essas pegadas estão bem claras',
+    'Parece ser de alguem que calça entre 35 e 38... A sola é vermelha',
+    'Você sabe quem é o dono do chinelo?',
     'O que deseja fazer? \n',
     '1. Investigar melhor os arredores.',
     '2. Ir para o topo da montanha.'
@@ -59,7 +60,7 @@ fase(7, Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
-    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase, 8, Dialog))),
+    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase_middleware, 8, Dialog))),
     
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -75,10 +76,10 @@ fase(7, Parent) :-
     % Configuração dos componentes de texto
     Title = ['O caminho é úmido e o pé afunda...Essas pegadas estão bem claras.'],
     Body = [
-    'O que é aquilo? É brilhante... Um cordão tradicional do povo da ilha?'
+    'O que é aquilo? É brilhante... Um cordão tradicional do povo da ilha?',
     'O que deseja fazer? \n',
-    '1. Analisar pista'
-    '2. Ir para o topo da montanha.',
+    '1. Analisar pista',
+    '2. Ir para o topo da montanha.'
     ],
 
     init_fase(
@@ -87,7 +88,7 @@ fase(7, Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("Investigar arredores", message(@prolog, acao_investigar_arredores, Dialog))),
-    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase, 8, Dialog))),
+    send(BGroup, append, button("Ir para o topo da montanha", message(@prolog, fase_middleware, 8, Dialog))),
     
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),

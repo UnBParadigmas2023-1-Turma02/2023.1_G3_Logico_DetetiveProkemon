@@ -1,8 +1,6 @@
-:- module(fase, [fase/2]).
-
+:- module(fase3, [fase/2]).
+:- use_module('fase_middleware').
 :- use_module('globalGoals').
-:- use_module('fase5').
-:- use_module(library(pce)).
 
 fase(3, Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -39,8 +37,8 @@ fase(3, Parent) :-
     send(BGroup, append, button("Jacob Gallagher", message(@prolog, jacobGallagher, Dialog))),
     send(BGroup, append, button("Sophia Chen", message(@prolog, sophiaChen, Dialog))),
     send(BGroup, append, button("Gabriel Ramirez", message(@prolog, gabrielRamirez, Dialog))),
-    send(BGroup, append, button("Ir Para a Floresta", message(@prolog, fase, 5, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 2, Dialog))),
+    send(BGroup, append, button("Ir Para a Floresta", message(@prolog, fase_middleware, 5, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 2, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 3, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -69,7 +67,7 @@ benjaminBlackwood(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Pergunta 1", message(@prolog, acao_sobre_benjamin, Dialog))),
     send(BGroup, append, button("Pergunta 2", message(@prolog, acao_paradeiro_benjamin, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, benjaminBlackwood, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -95,7 +93,7 @@ acao_sobre_benjamin(Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("Perguntar mais", message(@prolog, benjaminBlackwood, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_sobre_benjamin, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -122,7 +120,7 @@ acao_paradeiro_benjamin(Parent) :-
 
     % Configuração dos botões
     send(BGroup, append, button("Perguntar mais", message(@prolog, benjaminBlackwood, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, acao_paradeiro_benjamin, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -133,7 +131,7 @@ acao_paradeiro_benjamin(Parent) :-
 victoriaSinclair(Parent) :-
     free(Parent),
     ScreenText = 'victoriaSinclair',
-    ImagePath = 'images/female1.jpg',
+    ImagePath = './images/victoria.jpg',
 
    % Configuração dos componentes de texto
     Title = ['Você está investigando Victoria Sinclair. O que você quer perguntar? \n'],
@@ -148,9 +146,9 @@ victoriaSinclair(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_VictoriaSinclair, Dialog))),
-    send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_VictoriaSinclair, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_victoriaSinclair, Dialog))),
+    send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_victoriaSinclair, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, victoriaSinclair, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -176,7 +174,7 @@ acao_sobre_victoriaSinclair(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, victoriaSinclair, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -203,7 +201,7 @@ acao_paradeiro_victoriaSinclair(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, victoriaSinclair, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -235,7 +233,7 @@ ethanDonovan(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_EthanDonovan, Dialog))),
     send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_EthanDonovan, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, ethanDonovan, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -250,9 +248,11 @@ acao_sobre_EthanDonovan(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Resposta: Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. Meu pokémon é o Weavile. \n'],
+    Title = [
+    'Resposta: Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. Meu pokémon é o Weavile. \n',
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
+    ],
     
 
     init_fase(
@@ -260,7 +260,7 @@ acao_sobre_EthanDonovan(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, ethanDonovan, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -287,7 +287,7 @@ acao_paradeiro_EthanDonovan(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, ethanDonovan, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -319,7 +319,7 @@ acao_paradeiro_EthanDonovan(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_OliviaMorgan, Dialog))),
     send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_OliviaMorgan, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, oliviaMorgan, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -345,7 +345,7 @@ acao_sobre_OliviaMorgan(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, oliviaMorgan, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -372,7 +372,7 @@ acao_paradeiro_OliviaMorgan(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, oliviaMorgan, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -405,7 +405,7 @@ acao_paradeiro_OliviaMorgan(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_SebastianRusso, Dialog))),
     send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_SebastianRusso, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, sebastianRusso, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -420,9 +420,11 @@ acao_sobre_SebastianRusso(Parent) :-
     ImagePath = 'images/female1.jpg',
 
    % Configuração dos componentes de texto
-    Title = ['Resposta: Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. Meu pokémon é o Ditto. \n'],
+    Title = [
+    'Resposta: Vim para ilha com o objetivo de coleta de dados e à obtenção de informações para os interesses da Equipe Rocket. Como membro da equipe, eu estava encarregado de observar de perto as atividades na ilha e relatar quaisquer descobertas ou acontecimentos relevantes. Meu pokémon é o Ditto. \n',
     '1. Voltar para o menu de suspeitos.',
     '2. Fazer mais perguntas pro suspeito.'
+    ],
     
 
     init_fase(
@@ -430,7 +432,7 @@ acao_sobre_SebastianRusso(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, sebastianRusso, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -457,7 +459,7 @@ acao_paradeiro_SebastianRusso(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, sebastianRusso, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -489,7 +491,7 @@ acao_paradeiro_SebastianRusso(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_isabellaSantiago, Dialog))),
     send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_isabellaSantiago, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, isabellaSantiago, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -515,7 +517,7 @@ acao_sobre_isabellaSantiago(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, isabellaSantiago, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -542,7 +544,7 @@ acao_paradeiro_isabellaSantiago(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, isabellaSantiago, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -574,7 +576,7 @@ jacobGallagher(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_JacobGallagher, Dialog))),
     send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_JacobGallagher, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, jacobGallagher, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -600,7 +602,7 @@ acao_sobre_JacobGallagher(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, jacobGallagher, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -627,7 +629,7 @@ acao_paradeiro_JacobGallagher(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, jacobGallagher, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -657,7 +659,7 @@ sophiaChen(Parent) :-
     % Configuração dos botões
     send(BGroup, append, button('Pergunta 1', message(@prolog, acao_sobre_sophiaChen, Dialog))),
     send(BGroup, append, button('Pergunta 2', message(@prolog, acao_paradeiro_sophiaChen, Dialog))),
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, sophiaChen, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -683,7 +685,7 @@ acao_sobre_sophiaChen(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, sophiaChen, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -710,7 +712,7 @@ acao_paradeiro_sophiaChen(Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button(voltar, message(@prolog, fase, 3, Dialog))),
+    send(BGroup, append, button(voltar, message(@prolog, fase_middleware, 3, Dialog))),
     send(BGroup, append, button('Mais perguntas', message(@prolog, sophiaChen, Dialog))),
 
     % Configuração do botão de lista de suspeitos

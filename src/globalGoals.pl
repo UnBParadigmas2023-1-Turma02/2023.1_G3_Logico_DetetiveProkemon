@@ -2,14 +2,15 @@
   globalGoals, 
   [
     suspeito/1,
-    suspeito_pokemon/1,
+    suspeito_pokemon/2,
     pokemon/1,
-    tipo_pokemon/1,
+    tipo_pokemon/2,
     cenario/1,
-    motivacao/1,
+    motivacao/2,
     inicializa_canvas/2,
     componentes/5,
     componentes/4,
+    encontrou_pista/1,
     same_type/3,
     create_text_font/2,
     init_fase/11,
@@ -21,6 +22,7 @@
 
 :- dynamic suspeito/1.
 :- dynamic encontrou_pista/1.
+
 
 display.user_fonts: \
         [ normal := font(helvetica, roman, 14), \

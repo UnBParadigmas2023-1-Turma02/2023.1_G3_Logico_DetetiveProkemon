@@ -1,6 +1,6 @@
 :- module(fase9, [fase/2]).
-:- use_module('fase10').
-:- use_module('fase11').
+:- use_module('fase_middleware').
+:- use_module('globalGoals').
 
 fase(9, Parent) :-
     free(Parent), % Destrói a janela anterior
@@ -25,8 +25,8 @@ fase(9, Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Investigar ninho", message(@prolog, acao_investigar_ninho, Dialog))),
     send(BGroup, append, button("Interrogar Sofia", message(@prolog, sophiaChen, Dialog))),
-    send(BGroup, append, button("Seguir o buraco da esquerda", message(@prolog, fase, 10, Dialog))),
-    send(BGroup, append, button("Seguir o buraco da direita", message(@prolog, fase, 11, Dialog))),
+    send(BGroup, append, button("Seguir o buraco da esquerda", message(@prolog, fase_middleware, 10, Dialog))),
+    send(BGroup, append, button("Seguir o buraco da direita", message(@prolog, fase_middleware, 11, Dialog))),
 
 
     % Configuração do botão de lista de suspeitos
@@ -35,7 +35,7 @@ fase(9, Parent) :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-sophiaChen (Parent) :-
+sophiaChen(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Sophia Chen',
     ImagePath = './images/sophia.jpg',
@@ -59,7 +59,7 @@ sophiaChen (Parent) :-
     % Configuração dos botões
     send(BGroup, append, button("Pergunta 1", message(@prolog, acao_sobre_SophiaChen, Dialog))),
     send(BGroup, append, button("Pergunta 2", message(@prolog, acao_caminho_SophiaChen, Dialog))),
-    send(BGroup, append, button("Voltar", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Voltar", message(@prolog, fase_middleware, 9, Dialog))),
 
     % Configuração do botão de lista de suspeitos
     send(SGroup, append, button("lista de suspeitos", message(@prolog, lista_suspeitos, 2, Dialog, bitmap('images/lista_suspeitos.jpg')))),
@@ -67,7 +67,7 @@ sophiaChen (Parent) :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-acao_sobre_SophiaChen (Parent) :-
+acao_sobre_SophiaChen(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Sophia Chen',
     ImagePath = './images/sophia.jpg',
@@ -78,7 +78,7 @@ acao_sobre_SophiaChen (Parent) :-
     'Eu que deveria te perguntar, estou investigando o caso e você acabou de entrar na minha lista de suspeitos! \n',
     'O que você deseja fazer?',
     '1. Voltar para o mapa',
-    '2. Fazer mais perguntas pro suspeito.',
+    '2. Fazer mais perguntas pro suspeito.'
     ],
 
     assert(suspeitos(sofiaChen)),
@@ -88,7 +88,7 @@ acao_sobre_SophiaChen (Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button("Voltar", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Voltar", message(@prolog, fase_middleware, 9, Dialog))),
     send(BGroup, append, button("Fazer mais perguntas", message(@prolog, sophiaChen, Dialog))),
 
     % Configuração do botão de lista de suspeitos
@@ -97,7 +97,7 @@ acao_sobre_SophiaChen (Parent) :-
     % Posicionamento dos componentes
     componentes(Dialog, Canvas, BGroup, TGroup, SGroup).
 
-acao_caminho_SophiaChen (Parent) :-
+acao_caminho_SophiaChen(Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Sophia Chen',
     ImagePath = './images/sophia.jpg',
@@ -108,7 +108,7 @@ acao_caminho_SophiaChen (Parent) :-
     'Resposta: Como eu acabei de chegar julgo que entramos em caminhos diferentes na base da montanha\n',
     'O que você deseja fazer?',
     '1. Voltar para o mapa',
-    '2. Fazer mais perguntas pro suspeito.',
+    '2. Fazer mais perguntas pro suspeito.'
     ],
 
     assert(suspeitos(sophiaChen)),
@@ -118,7 +118,7 @@ acao_caminho_SophiaChen (Parent) :-
     ),
 
     % Configuração dos botões
-    send(BGroup, append, button("Voltar", message(@prolog, fase, 9, Dialog))),
+    send(BGroup, append, button("Voltar", message(@prolog, fase_middleware, 9, Dialog))),
     send(BGroup, append, button("Fazer mais perguntas", message(@prolog, sophiaChen, Dialog))),
 
     % Configuração do botão de lista de suspeitos
