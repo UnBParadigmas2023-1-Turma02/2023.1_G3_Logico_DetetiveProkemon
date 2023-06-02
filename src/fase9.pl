@@ -1,7 +1,7 @@
 fase(9, Parent) :-
     free(Parent), % Destrói a janela anterior
     ScreenText = 'Topo da Montanha',
-    ImagePath = './images/montanha.jpg',
+    ImagePath = './images/topo_montanha.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Você está no topo da montanha.'],
@@ -33,8 +33,8 @@ fase(9, Parent) :-
 
 sophiaChen (Parent) :-
     free(Parent), % Destrói a janela anterior
-    ScreenText = 'Sofia Chen',
-    ImagePath = './images/montanha.jpg',
+    ScreenText = 'Sophia Chen',
+    ImagePath = './images/sophia.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Sofia Chen.'],
@@ -65,8 +65,8 @@ sophiaChen (Parent) :-
 
 acao_sobre_SophiaChen (Parent) :-
     free(Parent), % Destrói a janela anterior
-    ScreenText = 'Sofia Chen',
-    ImagePath = './images/montanha.jpg',
+    ScreenText = 'Sophia Chen',
+    ImagePath = './images/sophia.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Sofia Chen.'],
@@ -95,8 +95,8 @@ acao_sobre_SophiaChen (Parent) :-
 
 acao_caminho_SophiaChen (Parent) :-
     free(Parent), % Destrói a janela anterior
-    ScreenText = 'Sofia Chen',
-    ImagePath = './images/montanha.jpg',
+    ScreenText = 'Sophia Chen',
+    ImagePath = './images/sophia.jpg',
 
     % Configuração dos componentes de texto
     Title = ['Sofia Chen.'],
@@ -107,7 +107,7 @@ acao_caminho_SophiaChen (Parent) :-
     '2. Fazer mais perguntas pro suspeito.',
     ],
 
-    assert(suspeitos(sofiaChen)),
+    assert(suspeitos(sophiaChen)),
 
     init_fase(
       ScreenText, ImagePath, Title, Body, Dialog, Canvas, BG, BGroup, GGroup, TGroup, SGroup
