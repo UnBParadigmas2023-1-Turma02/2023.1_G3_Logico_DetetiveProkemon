@@ -4,6 +4,18 @@
 :- dynamic suspeito/1.
 :- dynamic encontrou_pista/1.
 
+:- dynamic tentativas/1.
+tentativas(3).
+
+diminuir_tentativas :-
+    retract(tentativas(X)),
+    Y is X - 1,
+    assert(tentativas(Y)).
+
+checar_tentativas :-
+    tentativas(X),
+    (X > 0 -> true ; (write('Você esgotou suas tentativas...'), fail)).
+
 suspeito(BenjaminBlackwood).
 suspeito(VictoriaSinclair).
 suspeito(EthanDonova).
