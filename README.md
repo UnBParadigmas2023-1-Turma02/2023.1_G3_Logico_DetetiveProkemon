@@ -44,7 +44,7 @@ Prepare-se para uma experiência envolvente, onde estratégia, trabalho em equip
 ## Instalação
 
 **Linguagens**: Prolog <br>
-**Tecnologias**: xxxxxx<br>
+**Tecnologias**: XPCE, SWI_Prolog 9.0 <br>
 
 ## Pré Requisitos
 
@@ -64,14 +64,27 @@ http-server -c-1
 
 ## Uso
 
-Explique como usar seu projeto.
-Procure ilustrar em passos, com apoio de telas do software, seja com base na interface gráfica, seja com base no terminal.
-Nessa seção, deve-se revelar de forma clara sobre o funcionamento do software.
+Deve-se primeiramente instalar a SWI-Prolog `sudo apt install swi-prolog`
+Para utilizar, tendo instalado a biblioteca SWI-Prolog, basta rodar os arquivos utilizando o interpretador `swipl`
+
+Para o back-end.
+```bash
+swipl main.pl
+iniciar_jogo.
+```
+
+Para o front-end
+```bash
+swipl apresentação.pl
+iniciar_jogo.
+```
+
+E agora aparecerão as telas para interação do usuário, ou pela cli.
 
 ## Vídeo
 Vídeo de apresentação do projeto
 
-[![Assistir Video](./img/background.png)](https://www.youtube.com)
+[![Assistir Video](./img/background.png)](https://youtu.be/OrKAf9xaA6k)
 >Clique na imagem para assistir
 
 ## Participações
